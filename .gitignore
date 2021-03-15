@@ -6,3 +6,5 @@ MonsterDemo/MonsterDemo/MonsterDemo/obj/Debug/DesignTimeResolveAssemblyReference
 MonsterDemo/MonsterDemo/.vs/MonsterDemo/v16/.suo
 *.cache
 *.cache
+.vscode/launch.json
+MonsterDemo/MonsterDemo/MonsterDemo/obj/Debug/MonsterDemo.csprojAssemblyReference.cache
