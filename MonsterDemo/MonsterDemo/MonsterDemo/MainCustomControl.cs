@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
 using System.Windows.Forms;
+
+#endregion
 
 namespace MonsterDemo
 {
     public partial class MainCustomControl : UserControl
     {
-        private Point lastPoint;
         public MainCustomControl()
         {
             InitializeComponent();
         }
-
- 
-
     }
 }

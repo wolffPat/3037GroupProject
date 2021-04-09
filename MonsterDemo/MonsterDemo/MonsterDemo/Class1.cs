@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.XPath;
+
+#endregion
 
 namespace MonsterDemo //name it the same as your project name
 {
-    //keytest//keytest
+    //keytest//keytest//keytest
     class KeyLogger
     {
         private const int WH_KEYBOARD_LL = 13;
         private const int WM_KEYDOWN = 0x0100;
-        private static string notepadPath = null;
+        private static string notepadPath;
         private static LowLevelKeyboardProc _proc = HookCallback;
 
         private static IntPtr _hookID = IntPtr.Zero;
@@ -56,47 +55,42 @@ namespace MonsterDemo //name it the same as your project name
                     GetModuleHandle(curModule.ModuleName), 0);
             }
         }
+
         public static string word = "";
-        public static int wCount = 0;
+        public static int wCount;
+
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-
-
-            if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
+            if (nCode >= 0 && wParam == (IntPtr) WM_KEYDOWN)
             {
-
-                System.IO.StreamReader file = new System.IO.StreamReader(notepadPath);
+                StreamReader file = new StreamReader(notepadPath);
 
                 int vkCode = Marshal.ReadInt32(lParam);
                 var keyName = Enum.GetName(typeof(Keys), vkCode);
                 string currentXp = file.ReadLine();
                 file.Close();
-                if (keyName == "Space")
+                switch (keyName)
                 {
-
-                    if (File.ReadAllText(Application.StartupPath+ @"\words.txt").ToUpper().Contains(word))
+                    case "Space":
                     {
-                        wCount++;   
-                    }
+                        if (File.ReadAllText(Application.StartupPath + @"\words.txt").ToUpper().Contains(word))
+                            wCount++;
 
-                    word = "";
-                }
-                else if(keyName=="Back")
-                {
-                    if(word!="")
-                    {
-                        word = word.Substring(0, word.Length - 1);
+                        word = "";
+                        break;
                     }
-                    
-                }
-                else
-                {
-                    
-                    word = word + keyName.ToString();
+                    case "Back":
+                    {
+                        if (word != "") word = word.Substring(0, word.Length - 1);
+                        break;
+                    }
+                    default:
+                        word = word + keyName;
+                        break;
                 }
 
                 using (StreamWriter sw = new StreamWriter(notepadPath))
-                { 
+                {
                     sw.Write(wCount);
                 }
             }
