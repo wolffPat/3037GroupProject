@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.XPath;
 
 namespace MonsterDemo //name it the same as your project name
 {
@@ -54,37 +55,44 @@ namespace MonsterDemo //name it the same as your project name
                     GetModuleHandle(curModule.ModuleName), 0);
             }
         }
-
+        public static string word = "";
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
+
+
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
             {
-                string word="";
 
-               
+                System.IO.StreamReader file = new System.IO.StreamReader(notepadPath);
+
                 int vkCode = Marshal.ReadInt32(lParam);
                 var keyName = Enum.GetName(typeof(Keys), vkCode);
-                string currentLog = File.ReadAllText(notepadPath);
-
+                string currentXp = file.ReadLine();
+                int wCount=0;
                 if (keyName == "Space")
                 {
 
-                    if (File.ReadAllText(Application.StartupPath+ @"\words.txt").Contains(word))
+                    if (File.ReadAllText(Application.StartupPath+ @"\words.txt").ToUpper().Contains(word))
                     {
-                        MessageBox.Show("There is a match");
+                        wCount++;
+                        MessageBox.Show(word);
+
                     }
+                    else
+                    {
+                        MessageBox.Show(word);
+                    }
+
+                    word = "";
                 }
-                word += keyName;
-               
-             
-
-           
-                using (StreamWriter sw = new StreamWriter(notepadPath))
+                else
                 {
-                    
+                    word = word + keyName.ToString();
+                }
 
-                    sw.Write(currentLog + 'X');
-
+                using (StreamWriter sw = new StreamWriter(notepadPath))
+                { 
+                    sw.Write(wCount);
                 }
             }
 
