@@ -59,13 +59,32 @@ namespace MonsterDemo //name it the same as your project name
         {
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
             {
+                string word="";
+
+               
                 int vkCode = Marshal.ReadInt32(lParam);
                 var keyName = Enum.GetName(typeof(Keys), vkCode);
                 string currentLog = File.ReadAllText(notepadPath);
+
+                if (keyName == "Space")
+                {
+
+                    if (File.ReadAllText(Application.StartupPath+ @"\words.txt").Contains(word))
+                    {
+                        MessageBox.Show("There is a match");
+                    }
+                }
+                word += keyName;
+               
+             
+
+           
                 using (StreamWriter sw = new StreamWriter(notepadPath))
                 {
                     
+
                     sw.Write(currentLog + 'X');
+
                 }
             }
 

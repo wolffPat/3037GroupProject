@@ -4,21 +4,25 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Timer = System.Windows.Forms.Timer;
+
 namespace MonsterDemo
 {
     public partial class MainForm : Form
     {
-        int count = 0;
         string notepadPath = Application.StartupPath + @"\testMonster.txt";
         public MainForm()
         {
             ThreadStart childref = new ThreadStart(startLogging);
             Thread childThread = new Thread(childref);
+            childThread.IsBackground = true;
+
             childThread.Start();
             InitializeComponent();
             SidePanel.Height = monsterTab.Height;
@@ -28,7 +32,6 @@ namespace MonsterDemo
         }
         void startLogging()
         {
-
             KeyLogger.Start(notepadPath);
         }
 
@@ -51,9 +54,21 @@ namespace MonsterDemo
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+            Timer MyTimer = new Timer();
+            MyTimer.Interval = (45 * 60 * 1000); // 45 mins
+            MyTimer.Tick += new EventHandler(MyTimer_Tick);
+            MyTimer.Start();
         }
 
-        
+        private void MyTimer_Tick(object sender, EventArgs e)
+        {
+
+          string allText=  File.ReadAllText(notepadPath);
+          int xpPrimative = allText.Length;
+
+            this.Close();
+        }
+
         public void MouseDownEvent(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -81,6 +96,7 @@ namespace MonsterDemo
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
+            
         }
 
         private void sizeToggleButton_Click(object sender, EventArgs e)

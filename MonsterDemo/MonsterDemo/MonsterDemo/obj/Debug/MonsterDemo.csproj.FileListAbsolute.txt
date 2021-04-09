@@ -32,7 +32,6 @@ C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\Monster
 C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.csproj.CoreCompileInputs.cache
 C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.exe
 C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.pdb
-C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.UserControl1.resources
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\bin\Debug\MonsterDemo.exe.config
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\bin\Debug\MonsterDemo.exe
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\bin\Debug\MonsterDemo.pdb
