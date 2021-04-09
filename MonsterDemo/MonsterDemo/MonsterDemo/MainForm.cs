@@ -22,7 +22,6 @@ namespace MonsterDemo
             ThreadStart childref = new ThreadStart(startLogging);
             Thread childThread = new Thread(childref);
             childThread.IsBackground = true;
-
             childThread.Start();
             InitializeComponent();
             SidePanel.Height = monsterTab.Height;
@@ -63,10 +62,10 @@ namespace MonsterDemo
         private void MyTimer_Tick(object sender, EventArgs e)
         {
 
-          string allText=  File.ReadAllText(notepadPath);
-          int xpPrimative = allText.Length;
+        //  string allText=  File.ReadAllText(notepadPath);
+          //int xpPrimative = allText.Length;
 
-            this.Close();
+            //this.Close();
         }
 
         public void MouseDownEvent(object sender, MouseEventArgs e)

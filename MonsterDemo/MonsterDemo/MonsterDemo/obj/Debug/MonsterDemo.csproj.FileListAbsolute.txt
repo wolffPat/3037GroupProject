@@ -39,7 +39,6 @@ C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\Monster
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.MainCustomControl.resources
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.StatsCustomControl.resources
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.Properties.Resources.resources
-C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.UserControl1.resources
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.csproj.GenerateResource.cache
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.csproj.CoreCompileInputs.cache
 C:\Users\wolffpf\Documents\3037\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.exe

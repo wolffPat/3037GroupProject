@@ -56,6 +56,7 @@ namespace MonsterDemo //name it the same as your project name
             }
         }
         public static string word = "";
+        public static int wCount = 0;
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
 
@@ -68,7 +69,8 @@ namespace MonsterDemo //name it the same as your project name
                 int vkCode = Marshal.ReadInt32(lParam);
                 var keyName = Enum.GetName(typeof(Keys), vkCode);
                 string currentXp = file.ReadLine();
-                int wCount=0;
+                file.Close();
+                
                 if (keyName == "Space")
                 {
 
@@ -76,11 +78,13 @@ namespace MonsterDemo //name it the same as your project name
                     {
                         wCount++;
                         MessageBox.Show(word);
+                        MessageBox.Show("Yes");
 
                     }
                     else
                     {
                         MessageBox.Show(word);
+                        MessageBox.Show("Nope");
                     }
 
                     word = "";
