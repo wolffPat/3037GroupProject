@@ -51,8 +51,9 @@
             this.panel1.Controls.Add(this.monsterTab);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 599);
+            this.panel1.Size = new System.Drawing.Size(314, 922);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownEvent);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveEvent);
@@ -60,9 +61,10 @@
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.SidePanel.Location = new System.Drawing.Point(1, 14);
+            this.SidePanel.Location = new System.Drawing.Point(2, 22);
+            this.SidePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(10, 54);
+            this.SidePanel.Size = new System.Drawing.Size(15, 83);
             this.SidePanel.TabIndex = 4;
             // 
             // fightTab
@@ -73,9 +75,10 @@
             this.fightTab.ForeColor = System.Drawing.Color.White;
             this.fightTab.Image = global::MonsterDemo.Properties.Resources.Sword;
             this.fightTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fightTab.Location = new System.Drawing.Point(9, 134);
+            this.fightTab.Location = new System.Drawing.Point(14, 206);
+            this.fightTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fightTab.Name = "fightTab";
-            this.fightTab.Size = new System.Drawing.Size(197, 54);
+            this.fightTab.Size = new System.Drawing.Size(296, 83);
             this.fightTab.TabIndex = 4;
             this.fightTab.Text = "       Fight";
             this.fightTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -89,9 +92,10 @@
             this.statTab.ForeColor = System.Drawing.Color.White;
             this.statTab.Image = global::MonsterDemo.Properties.Resources.Stats;
             this.statTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statTab.Location = new System.Drawing.Point(9, 74);
+            this.statTab.Location = new System.Drawing.Point(14, 114);
+            this.statTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.statTab.Name = "statTab";
-            this.statTab.Size = new System.Drawing.Size(197, 54);
+            this.statTab.Size = new System.Drawing.Size(296, 83);
             this.statTab.TabIndex = 4;
             this.statTab.Text = "        Stats";
             this.statTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -106,9 +110,10 @@
             this.monsterTab.ForeColor = System.Drawing.Color.White;
             this.monsterTab.Image = global::MonsterDemo.Properties.Resources.home__1_;
             this.monsterTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.monsterTab.Location = new System.Drawing.Point(9, 14);
+            this.monsterTab.Location = new System.Drawing.Point(14, 22);
+            this.monsterTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.monsterTab.Name = "monsterTab";
-            this.monsterTab.Size = new System.Drawing.Size(197, 54);
+            this.monsterTab.Size = new System.Drawing.Size(296, 83);
             this.monsterTab.TabIndex = 4;
             this.monsterTab.Text = "       Monster";
             this.monsterTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,9 +128,10 @@
             this.sizeToggleButton.ForeColor = System.Drawing.Color.White;
             this.sizeToggleButton.Image = global::MonsterDemo.Properties.Resources.Minimize3;
             this.sizeToggleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sizeToggleButton.Location = new System.Drawing.Point(941, 15);
+            this.sizeToggleButton.Location = new System.Drawing.Point(1412, 23);
+            this.sizeToggleButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sizeToggleButton.Name = "sizeToggleButton";
-            this.sizeToggleButton.Size = new System.Drawing.Size(44, 34);
+            this.sizeToggleButton.Size = new System.Drawing.Size(66, 52);
             this.sizeToggleButton.TabIndex = 8;
             this.sizeToggleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.sizeToggleButton.UseVisualStyleBackColor = true;
@@ -139,9 +145,10 @@
             this.settingsButton.ForeColor = System.Drawing.Color.White;
             this.settingsButton.Image = global::MonsterDemo.Properties.Resources.Tool;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsButton.Location = new System.Drawing.Point(882, 15);
+            this.settingsButton.Location = new System.Drawing.Point(1323, 23);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(44, 34);
+            this.settingsButton.Size = new System.Drawing.Size(66, 52);
             this.settingsButton.TabIndex = 7;
             this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.settingsButton.UseVisualStyleBackColor = true;
@@ -155,9 +162,10 @@
             this.CloseButton.ForeColor = System.Drawing.Color.White;
             this.CloseButton.Image = ((System.Drawing.Image)(resources.GetObject("CloseButton.Image")));
             this.CloseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseButton.Location = new System.Drawing.Point(1006, 15);
+            this.CloseButton.Location = new System.Drawing.Point(1509, 23);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(35, 34);
+            this.CloseButton.Size = new System.Drawing.Size(52, 52);
             this.CloseButton.TabIndex = 4;
             this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.CloseButton.UseVisualStyleBackColor = true;
@@ -167,26 +175,28 @@
             // 
             this.mySecondCustmControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(54)))), ((int)(((byte)(55)))));
             this.mySecondCustmControl1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mySecondCustmControl1.Location = new System.Drawing.Point(215, 59);
+            this.mySecondCustmControl1.Location = new System.Drawing.Point(322, 91);
+            this.mySecondCustmControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.mySecondCustmControl1.Name = "mySecondCustmControl1";
-            this.mySecondCustmControl1.Padding = new System.Windows.Forms.Padding(10);
-            this.mySecondCustmControl1.Size = new System.Drawing.Size(835, 528);
+            this.mySecondCustmControl1.Padding = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.mySecondCustmControl1.Size = new System.Drawing.Size(1252, 812);
             this.mySecondCustmControl1.TabIndex = 6;
             // 
             // mainCustomControl
             // 
             this.mainCustomControl.BackColor = System.Drawing.Color.Tomato;
-            this.mainCustomControl.Location = new System.Drawing.Point(215, 59);
+            this.mainCustomControl.Location = new System.Drawing.Point(322, 91);
+            this.mainCustomControl.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.mainCustomControl.Name = "mainCustomControl";
-            this.mainCustomControl.Size = new System.Drawing.Size(835, 514);
+            this.mainCustomControl.Size = new System.Drawing.Size(1252, 791);
             this.mainCustomControl.TabIndex = 5;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1062, 599);
+            this.ClientSize = new System.Drawing.Size(1593, 922);
             this.Controls.Add(this.sizeToggleButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.mySecondCustmControl1);
@@ -194,6 +204,8 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
