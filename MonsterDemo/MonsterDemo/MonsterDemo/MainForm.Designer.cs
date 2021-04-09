@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-
-
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.fightTab = new System.Windows.Forms.Button();
+            this.statTab = new System.Windows.Forms.Button();
+            this.monsterTab = new System.Windows.Forms.Button();
+            this.sizeToggleButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.mySecondCustmControl1 = new MonsterDemo.StatsCustomControl();
             this.mainCustomControl = new MonsterDemo.MainCustomControl();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,14 +46,16 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.Controls.Add(this.SidePanel);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.fightTab);
+            this.panel1.Controls.Add(this.statTab);
+            this.panel1.Controls.Add(this.monsterTab);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 599);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownEvent);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveEvent);
             // 
             // SidePanel
             // 
@@ -66,15 +65,103 @@
             this.SidePanel.Size = new System.Drawing.Size(10, 54);
             this.SidePanel.TabIndex = 4;
             // 
-            // label4
+            // fightTab
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(360, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(291, 21);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "C# UI Designing By SaLaaR HuSceyN";
+            this.fightTab.FlatAppearance.BorderSize = 0;
+            this.fightTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fightTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fightTab.ForeColor = System.Drawing.Color.White;
+            this.fightTab.Image = global::MonsterDemo.Properties.Resources.Sword;
+            this.fightTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fightTab.Location = new System.Drawing.Point(9, 134);
+            this.fightTab.Name = "fightTab";
+            this.fightTab.Size = new System.Drawing.Size(197, 54);
+            this.fightTab.TabIndex = 4;
+            this.fightTab.Text = "       Fight";
+            this.fightTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.fightTab.UseVisualStyleBackColor = true;
+            // 
+            // statTab
+            // 
+            this.statTab.FlatAppearance.BorderSize = 0;
+            this.statTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statTab.ForeColor = System.Drawing.Color.White;
+            this.statTab.Image = global::MonsterDemo.Properties.Resources.Stats;
+            this.statTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statTab.Location = new System.Drawing.Point(9, 74);
+            this.statTab.Name = "statTab";
+            this.statTab.Size = new System.Drawing.Size(197, 54);
+            this.statTab.TabIndex = 4;
+            this.statTab.Text = "        Stats";
+            this.statTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.statTab.UseVisualStyleBackColor = true;
+            this.statTab.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // monsterTab
+            // 
+            this.monsterTab.FlatAppearance.BorderSize = 0;
+            this.monsterTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.monsterTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monsterTab.ForeColor = System.Drawing.Color.White;
+            this.monsterTab.Image = global::MonsterDemo.Properties.Resources.home__1_;
+            this.monsterTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.monsterTab.Location = new System.Drawing.Point(9, 14);
+            this.monsterTab.Name = "monsterTab";
+            this.monsterTab.Size = new System.Drawing.Size(197, 54);
+            this.monsterTab.TabIndex = 4;
+            this.monsterTab.Text = "       Monster";
+            this.monsterTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.monsterTab.UseVisualStyleBackColor = true;
+            this.monsterTab.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // sizeToggleButton
+            // 
+            this.sizeToggleButton.FlatAppearance.BorderSize = 0;
+            this.sizeToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sizeToggleButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sizeToggleButton.ForeColor = System.Drawing.Color.White;
+            this.sizeToggleButton.Image = global::MonsterDemo.Properties.Resources.Minimize3;
+            this.sizeToggleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sizeToggleButton.Location = new System.Drawing.Point(941, 15);
+            this.sizeToggleButton.Name = "sizeToggleButton";
+            this.sizeToggleButton.Size = new System.Drawing.Size(44, 34);
+            this.sizeToggleButton.TabIndex = 8;
+            this.sizeToggleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.sizeToggleButton.UseVisualStyleBackColor = true;
+            this.sizeToggleButton.Click += new System.EventHandler(this.sizeToggleButton_Click);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ForeColor = System.Drawing.Color.White;
+            this.settingsButton.Image = global::MonsterDemo.Properties.Resources.Tool;
+            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingsButton.Location = new System.Drawing.Point(882, 15);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(44, 34);
+            this.settingsButton.TabIndex = 7;
+            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.ForeColor = System.Drawing.Color.White;
+            this.CloseButton.Image = ((System.Drawing.Image)(resources.GetObject("CloseButton.Image")));
+            this.CloseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CloseButton.Location = new System.Drawing.Point(1006, 15);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(35, 34);
+            this.CloseButton.TabIndex = 4;
+            this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // mySecondCustmControl1
             // 
@@ -94,139 +181,42 @@
             this.mainCustomControl.Size = new System.Drawing.Size(835, 514);
             this.mainCustomControl.TabIndex = 5;
             // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::MonsterDemo.Properties.Resources.Minimize3;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(941, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(44, 34);
-            this.button4.TabIndex = 8;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Image = global::MonsterDemo.Properties.Resources.Tool;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(882, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(44, 34);
-            this.button8.TabIndex = 7;
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(1006, 19);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(35, 34);
-            this.button13.TabIndex = 4;
-            this.button13.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::MonsterDemo.Properties.Resources.Sword;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(9, 134);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 54);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "       Fight";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::MonsterDemo.Properties.Resources.Stats;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(9, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 54);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "        Stats";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::MonsterDemo.Properties.Resources.home__1_;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(9, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 54);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "       Monster";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1062, 599);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.sizeToggleButton);
+            this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.mySecondCustmControl1);
             this.Controls.Add(this.mainCustomControl);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownEvent);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveEvent);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button statTab;
+        private System.Windows.Forms.Button monsterTab;
         private System.Windows.Forms.Panel SidePanel;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button fightTab;
+        private System.Windows.Forms.Button CloseButton;
         private MainCustomControl mainCustomControl;
         private StatsCustomControl mySecondCustmControl1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button sizeToggleButton;
     }
 }
 

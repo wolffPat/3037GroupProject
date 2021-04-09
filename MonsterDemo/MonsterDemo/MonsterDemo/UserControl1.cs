@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace MonsterDemo
 {
-    public partial class MainCustomControl : UserControl
+    public partial class UserControl1 : UserControl
     {
-        private Point lastPoint;
-        public MainCustomControl()
+        public UserControl1()
         {
             InitializeComponent();
         }
-
- 
-
     }
 }

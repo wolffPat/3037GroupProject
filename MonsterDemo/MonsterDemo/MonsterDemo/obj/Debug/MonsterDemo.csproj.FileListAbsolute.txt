@@ -20,3 +20,16 @@ C:\Users\graym\Downloads\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDe
 C:\Users\graym\Downloads\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.MainCustomControl.resources
 C:\Users\graym\Downloads\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.StatsCustomControl.resources
 C:\Users\graym\Downloads\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.MainForm.resources
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\bin\Debug\MonsterDemo.exe.config
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\bin\Debug\MonsterDemo.exe
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\bin\Debug\MonsterDemo.pdb
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.csprojAssemblyReference.cache
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.MainCustomControl.resources
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.MainForm.resources
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.StatsCustomControl.resources
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.Properties.Resources.resources
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.csproj.GenerateResource.cache
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.csproj.CoreCompileInputs.cache
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.exe
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.pdb
+C:\Users\graym\Documents\GitHub\3037GroupProject\MonsterDemo\MonsterDemo\MonsterDemo\obj\Debug\MonsterDemo.UserControl1.resources
