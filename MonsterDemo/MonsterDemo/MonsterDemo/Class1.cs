@@ -70,27 +70,27 @@ namespace MonsterDemo //name it the same as your project name
                 var keyName = Enum.GetName(typeof(Keys), vkCode);
                 string currentXp = file.ReadLine();
                 file.Close();
-                
                 if (keyName == "Space")
                 {
 
                     if (File.ReadAllText(Application.StartupPath+ @"\words.txt").ToUpper().Contains(word))
                     {
-                        wCount++;
-                        MessageBox.Show(word);
-                        MessageBox.Show("Yes");
-
-                    }
-                    else
-                    {
-                        MessageBox.Show(word);
-                        MessageBox.Show("Nope");
+                        wCount++;   
                     }
 
                     word = "";
                 }
+                else if(keyName=="Back")
+                {
+                    if(word!="")
+                    {
+                        word = word.Substring(0, word.Length - 1);
+                    }
+                    
+                }
                 else
                 {
+                    
                     word = word + keyName.ToString();
                 }
 
