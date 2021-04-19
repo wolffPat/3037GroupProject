@@ -12,5 +12,10 @@ namespace MonsterDemo
         {
             InitializeComponent();
         }
+
+        private void NameBox_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

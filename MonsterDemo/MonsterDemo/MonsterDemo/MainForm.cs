@@ -2,6 +2,7 @@
 
 using System;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
@@ -12,13 +13,15 @@ namespace MonsterDemo
 {
     public partial class MainForm : Form
     {
-        string notepadPath = Application.StartupPath + @"\testMonster.txt";
+        private bool _checkFirstrun = true;
+        public static int LogPath = Properties.Settings.Default.LogPoints;
+
 
         public MainForm()
         {
-            ThreadStart childref = startLogging;
-            Thread childThread = new Thread(childref);
-            childThread.IsBackground = true;
+            GetSettings();
+            ThreadStart childRef = Logging;
+            var childThread = new Thread(childRef) {IsBackground = true};
             childThread.Start();
             InitializeComponent();
             SidePanel.Height = monsterTab.Height;
@@ -26,71 +29,116 @@ namespace MonsterDemo
             mainCustomControl.BringToFront();
         }
 
-        void startLogging()
+        private static void GetSettings()
         {
-            KeyLogger.Start(notepadPath);
+            Monster.Name = Properties.Settings.Default.Name;
+            Monster.MonsterXp = Properties.Settings.Default.Xp;
+            Monster.MonsterAttack = Properties.Settings.Default.Attack;
+            Monster.MonsterTotalHealth = Properties.Settings.Default.TotalHealth;
+            Monster.MonsterHealth = Properties.Settings.Default.CurrentHealth;
+            Monster.MonsterLvl = Properties.Settings.Default.Level;
+            Monster.MonsterFriendShip = Properties.Settings.Default.Freindship;
+            ;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public static void SaveSettings()
         {
-            SidePanel.Height = monsterTab.Height;
-            SidePanel.Top = monsterTab.Top;
-            mainCustomControl.BringToFront();
+            Properties.Settings.Default.Name = Monster.Name;
+            Properties.Settings.Default.Xp = Monster.MonsterXp;
+            Properties.Settings.Default.Attack = Monster.MonsterAttack;
+            Properties.Settings.Default.TotalHealth = Monster.MonsterTotalHealth;
+            Properties.Settings.Default.CurrentHealth = Monster.MonsterHealth;
+            Properties.Settings.Default.Level = Monster.MonsterLvl;
+            Properties.Settings.Default.Freindship = Monster.MonsterFriendShip;
+            Properties.Settings.Default.HardMode = MonsterSettings.HardMode;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
+
+           
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        //calls in a new thread in background 
+        //for counting real words typed
+        private static void Logging()
         {
-            SidePanel.Height = statTab.Height;
-            SidePanel.Top = statTab.Top;
-            mySecondCustmControl1.BringToFront();
+            //starts checking for words and adding them the chars to LetterPoints
+            Logger.Start(LogPath);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Timer MyTimer = new Timer();
-            MyTimer.Interval = (45 * 60 * 1000); // 45 mins
-            MyTimer.Tick += MyTimer_Tick;
+            var MyTimer = new Timer {Interval = (5000)}; // Every 5 seconds
+            MyTimer.Tick += Monster.EveryTick;
             MyTimer.Start();
         }
 
-        private void MyTimer_Tick(object sender, EventArgs e)
+        private void HomeButtonClick(object sender, EventArgs e)
         {
-            //  string allText=  File.ReadAllText(notepadPath);
-            //int xpPrimative = allText.Length;
-
-            //this.Close();
+            SidePanel.Height = monsterTab.Height;
+            SidePanel.Top = monsterTab.Top;
+            mainCustomControl.Show();
+            mainCustomControl.BringToFront();
         }
 
-        public void MouseDownEvent(object sender, MouseEventArgs e)
+        private void StatsButtonClick(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) _lastPoint = new Point(e.X, e.Y);
+            SidePanel.Height = statTab.Height;
+            SidePanel.Top = statTab.Top;
+            statsCustomControl.Show();
+            statsCustomControl.BringToFront();
         }
-
-        private Point _lastPoint;
-
-
-        private void MouseMoveEvent(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Left += e.X - _lastPoint.X;
-                Top += e.Y - _lastPoint.Y;
-            }
-        }
-
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            SaveSettings();
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show(Properties.Settings.Default.Xp.ToString());
+            MessageBox.Show(Properties.Settings.Default.Attack.ToString());
+            MessageBox.Show(Properties.Settings.Default.TotalHealth.ToString());
+            MessageBox.Show(Properties.Settings.Default.CurrentHealth.ToString());
+            MessageBox.Show(Properties.Settings.Default.Level.ToString());
+            MessageBox.Show(Properties.Settings.Default.Freindship.ToString());
+            MessageBox.Show(Properties.Settings.Default.HardMode.ToString());
             Close();
         }
 
-        private void sizeToggleButton_Click(object sender, EventArgs e)
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            var settings = new MonsterSettings();
+            settings.Show();
+        }
+
+        private void SizeToggleButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void settingsButton_Click(object sender, EventArgs e)
+        //Both mouse events are for moving the windows without the usual top bar  
+        private void MouseDownEvent(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Left) _lastPoint = new Point(e.X, e.Y);
+        }
+
+        // _lastPoint used as location of mouse
+        private Point _lastPoint;
+
+        private void MouseMoveEvent(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            Left += e.X - _lastPoint.X;
+            Top += e.Y - _lastPoint.Y;
+        }
+
+        private void fightTab_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = fightTab.Height;
+            SidePanel.Top = fightTab.Top;
+            fight.Show();
+            fight.BringToFront();
         }
     }
 }

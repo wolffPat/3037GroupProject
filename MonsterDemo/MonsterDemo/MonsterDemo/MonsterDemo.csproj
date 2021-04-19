@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MainCustomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -63,6 +64,18 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonsterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonsterSettings.Designer.cs">
+      <DependentUpon>MonsterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight.Designer.cs">
+      <DependentUpon>Fight.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatsCustomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,11 +84,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Monster.cs" />
     <EmbeddedResource Include="MainCustomControl.resx">
       <DependentUpon>MainCustomControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonsterSettings.resx">
+      <DependentUpon>MonsterSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fight.resx">
+      <DependentUpon>Fight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatsCustomControl.resx">
       <DependentUpon>StatsCustomControl.cs</DependentUpon>
@@ -126,6 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\managing-wip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\home.ico" />
+    <Content Include="Resources\home1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

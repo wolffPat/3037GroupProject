@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainCustomControl));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.NameBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,24 +45,29 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // NameBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(611, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.NameBox.BackColor = System.Drawing.Color.Tomato;
+            this.NameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NameBox.Font = new System.Drawing.Font("Century Gothic", 20.25F);
+            this.NameBox.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.NameBox.Location = new System.Drawing.Point(279, 10);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(249, 34);
+            this.NameBox.TabIndex = 5;
+            this.NameBox.Text = "Name";
+            this.NameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 
             // MainCustomControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Firebrick;
-            this.Controls.Add(this.label2);
+            this.BackColor = System.Drawing.Color.Tomato;
+            this.Controls.Add(this.NameBox);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MainCustomControl";
-            this.Size = new System.Drawing.Size(817, 423);
+            this.Size = new System.Drawing.Size(835, 528);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -71,6 +76,6 @@
     
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox NameBox;
     }
 }
