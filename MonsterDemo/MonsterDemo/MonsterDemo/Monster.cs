@@ -23,10 +23,14 @@ namespace MonsterDemo
 
         static double newXpGate;
         
+        
+        
+        
         public static void EveryTick(object sender, EventArgs e)
         {
+           // StatsCustomControl.TimePlayedLblUpdate(1);
             MonsterXp = Logger.LetterPoints;
-
+            
             switch (MonsterLvl)
             {
                 case 0:
@@ -46,19 +50,33 @@ namespace MonsterDemo
                     break;
                 }
             }
+            StatsCustomControl.XpLblUpdate(MonsterXp.ToString(),newXpGate.ToString());
 
+            
             if (MonsterXp < newXpGate) return; 
             
             MonsterLvl++;//LEVEL UP!
-            using (var soundPlayer = new SoundPlayer(Application.StartupPath + @"\LevelUp.wav")) {
-                soundPlayer.Play(); // can also use soundPlayer.PlaySync()
-            }
-            Logger.LetterPoints = 0; MonsterXp = 0; //reset points and xp
-            //StatsCustomControl.XpUpdate(MonsterXp, newXpGate);
-            MainForm.SaveSettings();
             MainCustomControl.LvlLabel1Update(MonsterLvl.ToString());
             StatsCustomControl.LvlLabel2Update(MonsterLvl.ToString());
-            StatsCustomControl.LvlLabel2Update(MonsterLvl.ToString());
+
+            MonsterHealth += 5;
+            MonsterMaxHealth += 5;
+            StatsCustomControl.HealthLblUpdate(MonsterHealth,MonsterMaxHealth);
+
+            if (MonsterLvl % 5 == 0)
+            {
+                MonsterAttack += 5;
+                StatsCustomControl.AttackLblUpdate(MonsterAttack.ToString());
+            }
+
+            using (var soundPlayer = new SoundPlayer(Application.StartupPath + @"\LevelUp.wav")) {
+                soundPlayer.Play(); 
+            }
+            
+            Logger.LetterPoints = 0; MonsterXp = 0; //reset points and xp
+            MainForm.SaveSettings();
+   
+         
 
             
             

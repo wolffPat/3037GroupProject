@@ -18,14 +18,16 @@ namespace MonsterDemo //name it the same as your project name
         private static IntPtr _hookId = IntPtr.Zero;
         public static int LetterPoints { get; set; }
         private static string _word = "";
-        
-        
+
+
         private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
+
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
+        private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod,
+            uint dwThreadId);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -51,84 +53,86 @@ namespace MonsterDemo //name it the same as your project name
             }
         }
 
- 
-
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode < 0 || wParam != (IntPtr) WM_KEYDOWN) return CallNextHookEx(_hookId, nCode, wParam, lParam);
-            var vkCode = Marshal.ReadInt32(lParam);
             
-            //gets the key value- the character or keyboard button names-Space,Alt etc.
-            var keyName = Enum.GetName(typeof(Keys), value: vkCode);
+                if (nCode < 0 || wParam != (IntPtr) WM_KEYDOWN) return CallNextHookEx(_hookId, nCode, wParam, lParam);
+                var vkCode = Marshal.ReadInt32(lParam);
 
-            switch (keyName)
-            {
-                //words only recognized on these button presses  
-                case "Space":
-                case "Enter":
-                case "Tab":
-                case ".":
-                case ",":
+                //gets the key value- the character or keyboard button names-Space,Alt etc.
+                var keyName = Enum.GetName(typeof(Keys), value: vkCode);
+
+
+
+                switch (keyName.ToUpper())
                 {
-                    //Searches Entire dictionary for typed word
-                    if (File.ReadAllText(Application.StartupPath + @"\words.txt").ToUpper().Contains(_word))
-                    {
-                        //points will equal the amount of letters in the word 
-                        LetterPoints += _word.Length;
+                    //words only recognized on these button presses  
 
+
+                    case "SPACE":
+                    case "ENTER":
+                    case "TAB":
+                    case ".":
+                    case ",":
+                    case " ":
+                    {
+                        //Searches Entire dictionary for typed word
+                        if (File.ReadAllText(Application.StartupPath + @"\words.txt").ToUpper().Contains(_word.ToUpper()))
+                        {
+                            //points will equal the amount of letters in the word 
+                            LetterPoints += _word.Length;
+                        }
+                        
                         //Make word empty again 
                         _word = "";
+                        break;
                     }
 
-                    break;
-                }
-                
-                
-                //backspace works like a backspace, gets rid of previous stuff
-                case "Back":
-                {
-                    //not blank
-                    if (_word != "")
+
+                    //backspace works like a backspace, gets rid of previous stuff
+                    case "BACK":
                     {
-                        //gets rid of previous char
-                        _word = _word.Substring(0, _word.Length - 1);
-                        
-                        //hard-mode penalty
-                        if (Properties.Settings.Default.HardMode) 
+                        //not blank
+                        if (_word != "")
                         {
-                            LetterPoints -= 5; //-5 points by default...
+                            //gets rid of previous char
+                            _word = _word.Substring(0, _word.Length - 1);
+
+                            //hard-mode penalty
+                            if (Properties.Settings.Default.HardMode)
+                            {
+                                LetterPoints -= 5; //-5 points by default...
+                            }
                         }
+
+                        break;
                     }
-                    
-                    break;
+                    case "ALT":
+                    case "CTRL":
+                    case "WIN":
+                    case "SHIFT":
+                    case "CAPS":
+                    {
+                        
+                        break;
+                    }
+
+
+                    default:
+                    {
+                        //Creates the word letter by letter
+                        _word += keyName;
+                        break;
+                    }
                 }
-                default:
-                    //Creates the word letter by letter
-                    _word += keyName;
-                    break;
-            }
+                LetterPoints = LetterPoints;
 
+                //keep going
 
-            LetterPoints = LetterPoints;
-          
-            //keep going
-            return CallNextHookEx(_hookId, nCode, wParam, lParam);
-        }
+                 return CallNextHookEx(_hookId, nCode, wParam, lParam);
+            
 
-    }
-
-    //this is all just for  Health bars and XP bars(is for making it change colors...)
-    //prob should move but currently required..
-    public static class ModifyProgressBarColor
-    {
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
-        public static void SetState(this ProgressBar pBar, int state)
-        {
-            if (pBar != null)
-            {
-                SendMessage(pBar.Handle, 1040, (IntPtr) state, IntPtr.Zero);
-            }
         }
     }
 }
+ 

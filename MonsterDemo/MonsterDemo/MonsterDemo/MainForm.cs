@@ -18,8 +18,9 @@ namespace MonsterDemo
         {
             GetSettings();
             ThreadStart childRef = Logging;
-            var childThread = new Thread(childRef) {IsBackground = true};
+            var childThread = new Thread(childRef) {IsBackground = false };
             childThread.Start();
+            childThread.Priority = ThreadPriority.Highest;
             InitializeComponent();
             SidePanel.Height = monsterTab.Height;
             SidePanel.Top = monsterTab.Top;
@@ -36,7 +37,10 @@ namespace MonsterDemo
             Monster.MonsterHealth = Properties.Settings.Default.Health;
             Monster.MonsterLvl = Properties.Settings.Default.Lvl;
             Monster.MonsterFriendShip = Properties.Settings.Default.Freindship;
-            
+            StatsCustomControl.AttackLblUpdate(Monster.MonsterAttack.ToString());
+            StatsCustomControl.HealthLblUpdate(Monster.MonsterHealth,Monster.MonsterMaxHealth);
+
+
         }
 
         public static void SaveSettings()
@@ -50,7 +54,7 @@ namespace MonsterDemo
             Properties.Settings.Default.Freindship = Monster.MonsterFriendShip;
             Properties.Settings.Default.HardMode = MonsterSettings.HardMode;
             Properties.Settings.Default.Save();
-            Properties.Settings.Default.Reload();
+            Properties.Settings.Default.Reload();//just in case... had issues
             Properties.Settings.Default.Save();
             
 
@@ -61,7 +65,10 @@ namespace MonsterDemo
         private static void Logging()
         {
             //starts checking for words and adding them the chars to LetterPoints
-            Logger.Start();
+            
+                Logger.Start();
+
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -69,6 +76,9 @@ namespace MonsterDemo
             var MyTimer = new Timer {Interval = (100)}; // Every 1-10th of a second
             MyTimer.Tick += Monster.EveryTick;
             MyTimer.Start();
+            
+            
+            
         }
 
         private void HomeButtonClick(object sender, EventArgs e)
@@ -92,13 +102,13 @@ namespace MonsterDemo
             SaveSettings();
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
-            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Save(); //just in case... had issues
 
           
             //MessageBox.Show(Properties.Settings.Default.MaxHealth.ToString());
            // MessageBox.Show(Properties.Settings.Default.Health.ToString());
-            MessageBox.Show(Properties.Settings.Default.Xp.ToString());
-            MessageBox.Show(Properties.Settings.Default.Lvl.ToString());
+            //MessageBox.Show(Properties.Settings.Default.Xp.ToString());
+           // MessageBox.Show(Properties.Settings.Default.Lvl.ToString());
       
           
             Close();

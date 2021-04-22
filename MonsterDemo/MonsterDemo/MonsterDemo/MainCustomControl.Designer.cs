@@ -45,6 +45,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // NameBox
             // 
@@ -56,7 +57,7 @@
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(249, 34);
             this.NameBox.TabIndex = 5;
-            this.NameBox.Text = "Name";
+            this.NameBox.Text = "Grayson";
             this.NameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 

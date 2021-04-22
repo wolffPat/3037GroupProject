@@ -32,7 +32,9 @@
             XpLbl = new System.Windows.Forms.Label();
             HealthLbl = new System.Windows.Forms.Label();
             LvlLbl2 = new System.Windows.Forms.Label();
-
+            AttackLbl = new System.Windows.Forms.Label();
+            RealationshipLbl = new System.Windows.Forms.Label();
+            TimePlayedLbl = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -40,7 +42,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.AttackLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -49,14 +50,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.RealationshipLbl = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.BattlesWonLbl = new System.Windows.Forms.Label();
-            this.TimePlydLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -66,21 +71,6 @@
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LvlLbl2
-            // 
-            LvlLbl2.AutoSize = true;
-            LvlLbl2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
-            LvlLbl2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            LvlLbl2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            LvlLbl2.Font = new System.Drawing.Font("Century Gothic", 20.25F);
-            LvlLbl2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            LvlLbl2.Location = new System.Drawing.Point(3, 2);
-            LvlLbl2.Name = "LvlLbl2";
-            LvlLbl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            LvlLbl2.Size = new System.Drawing.Size(115, 33);
-            LvlLbl2.TabIndex = 2;
-            LvlLbl2.Text = "Level: 0";
             // 
             // label2
             // 
@@ -103,29 +93,15 @@
             XpLbl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
             XpLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
             XpLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            XpLbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            XpLbl.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             XpLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            XpLbl.Location = new System.Drawing.Point(253, 372);
+            XpLbl.Location = new System.Drawing.Point(463, 6);
             XpLbl.Name = "XpLbl";
             XpLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            XpLbl.Size = new System.Drawing.Size(30, 15);
+            XpLbl.Size = new System.Drawing.Size(51, 23);
             XpLbl.TabIndex = 4;
             XpLbl.Text = "0 / 0";
             XpLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.ForestGreen;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(HealthLbl);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panel2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.panel2.Location = new System.Drawing.Point(38, 53);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(184, 56);
-            this.panel2.TabIndex = 9;
             // 
             // HealthLbl
             // 
@@ -141,6 +117,81 @@
             HealthLbl.Size = new System.Drawing.Size(94, 42);
             HealthLbl.TabIndex = 14;
             HealthLbl.Text = "0 / 0";
+            // 
+            // LvlLbl2
+            // 
+            LvlLbl2.AutoSize = true;
+            LvlLbl2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
+            LvlLbl2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            LvlLbl2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            LvlLbl2.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            LvlLbl2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            LvlLbl2.Location = new System.Drawing.Point(3, 4);
+            LvlLbl2.Name = "LvlLbl2";
+            LvlLbl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            LvlLbl2.Size = new System.Drawing.Size(113, 33);
+            LvlLbl2.TabIndex = 2;
+            LvlLbl2.Text = "Level: 0";
+            // 
+            // AttackLbl
+            // 
+            AttackLbl.AutoSize = true;
+            AttackLbl.BackColor = System.Drawing.Color.Transparent;
+            AttackLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            AttackLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            AttackLbl.Font = new System.Drawing.Font("Century Gothic", 26.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            AttackLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            AttackLbl.Location = new System.Drawing.Point(104, 8);
+            AttackLbl.Name = "AttackLbl";
+            AttackLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            AttackLbl.Size = new System.Drawing.Size(38, 42);
+            AttackLbl.TabIndex = 5;
+            AttackLbl.Text = "1";
+            // 
+            // RealationshipLbl
+            // 
+            RealationshipLbl.AutoSize = true;
+            RealationshipLbl.BackColor = System.Drawing.Color.Black;
+            RealationshipLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            RealationshipLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            RealationshipLbl.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            RealationshipLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            RealationshipLbl.Location = new System.Drawing.Point(91, 0);
+            RealationshipLbl.Name = "RealationshipLbl";
+            RealationshipLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            RealationshipLbl.Size = new System.Drawing.Size(62, 16);
+            RealationshipLbl.TabIndex = 14;
+            RealationshipLbl.Text = "Stranger";
+            // 
+            // TimePlayedLbl
+            // 
+            TimePlayedLbl.AutoSize = true;
+            TimePlayedLbl.BackColor = System.Drawing.Color.Black;
+            TimePlayedLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            TimePlayedLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            TimePlayedLbl.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            TimePlayedLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            TimePlayedLbl.Location = new System.Drawing.Point(3, 26);
+            TimePlayedLbl.Name = "TimePlayedLbl";
+            TimePlayedLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            TimePlayedLbl.Size = new System.Drawing.Size(92, 17);
+            TimePlayedLbl.TabIndex = 12;
+            TimePlayedLbl.Text = "Time Played: ";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(HealthLbl);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panel2.ForeColor = System.Drawing.Color.ForestGreen;
+            this.panel2.Location = new System.Drawing.Point(38, 53);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(184, 56);
+            this.panel2.TabIndex = 9;
             // 
             // label11
             // 
@@ -160,6 +211,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.NameText2);
+            this.panel3.Controls.Add(XpLbl);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel3.Location = new System.Drawing.Point(0, 3);
@@ -173,19 +225,18 @@
             this.NameText2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NameText2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
             this.NameText2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.NameText2.Location = new System.Drawing.Point(8, 7);
+            this.NameText2.Location = new System.Drawing.Point(37, 0);
             this.NameText2.Name = "NameText2";
             this.NameText2.Size = new System.Drawing.Size(189, 34);
             this.NameText2.TabIndex = 16;
-            this.NameText2.Text = "Name";
-            this.NameText2.TextChanged += new System.EventHandler(this.NameText2_TextChanged);
+            this.NameText2.Text = "Grayson";
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(LvlLbl2);
             this.panel6.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panel6.Location = new System.Drawing.Point(203, 4);
+            this.panel6.Location = new System.Drawing.Point(232, -3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(225, 37);
             this.panel6.TabIndex = 11;
@@ -208,7 +259,8 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Firebrick;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.AttackLbl);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(AttackLbl);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.label12);
@@ -219,33 +271,18 @@
             this.panel4.Size = new System.Drawing.Size(604, 56);
             this.panel4.TabIndex = 13;
             // 
-            // AttackLbl
-            // 
-            this.AttackLbl.AutoSize = true;
-            this.AttackLbl.BackColor = System.Drawing.Color.Transparent;
-            this.AttackLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.AttackLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AttackLbl.Font = new System.Drawing.Font("Century Gothic", 26.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.AttackLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.AttackLbl.Location = new System.Drawing.Point(111, 10);
-            this.AttackLbl.Name = "AttackLbl";
-            this.AttackLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.AttackLbl.Size = new System.Drawing.Size(38, 42);
-            this.AttackLbl.TabIndex = 5;
-            this.AttackLbl.Text = "0";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(0, -3);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(51, 17);
+            this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 11;
             this.label1.Text = "Attack";
             // 
@@ -282,13 +319,17 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.ForestGreen;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label16);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.Features);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel5.ForeColor = System.Drawing.Color.Transparent;
             this.panel5.Location = new System.Drawing.Point(38, 115);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(184, 251);
+            this.panel5.Size = new System.Drawing.Size(78, 251);
             this.panel5.TabIndex = 14;
             // 
             // Features
@@ -334,7 +375,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Turquoise;
-            this.panel1.Controls.Add(this.RealationshipLbl);
+            this.panel1.Controls.Add(RealationshipLbl);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -343,21 +384,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(162, 23);
             this.panel1.TabIndex = 15;
-            // 
-            // RealationshipLbl
-            // 
-            this.RealationshipLbl.AutoSize = true;
-            this.RealationshipLbl.BackColor = System.Drawing.Color.Black;
-            this.RealationshipLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RealationshipLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RealationshipLbl.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.RealationshipLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RealationshipLbl.Location = new System.Drawing.Point(91, 0);
-            this.RealationshipLbl.Name = "RealationshipLbl";
-            this.RealationshipLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RealationshipLbl.Size = new System.Drawing.Size(62, 16);
-            this.RealationshipLbl.TabIndex = 14;
-            this.RealationshipLbl.Text = "Stranger";
             // 
             // label9
             // 
@@ -394,7 +420,7 @@
             this.panel7.BackColor = System.Drawing.Color.Black;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.BattlesWonLbl);
-            this.panel7.Controls.Add(this.TimePlydLbl);
+            this.panel7.Controls.Add(TimePlayedLbl);
             this.panel7.Controls.Add(this.label14);
             this.panel7.Controls.Add(this.label15);
             this.panel7.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -415,24 +441,9 @@
             this.BattlesWonLbl.Location = new System.Drawing.Point(3, 52);
             this.BattlesWonLbl.Name = "BattlesWonLbl";
             this.BattlesWonLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BattlesWonLbl.Size = new System.Drawing.Size(88, 17);
+            this.BattlesWonLbl.Size = new System.Drawing.Size(99, 17);
             this.BattlesWonLbl.TabIndex = 13;
-            this.BattlesWonLbl.Text = "Battles Won:\r\n";
-            // 
-            // TimePlydLbl
-            // 
-            this.TimePlydLbl.AutoSize = true;
-            this.TimePlydLbl.BackColor = System.Drawing.Color.Black;
-            this.TimePlydLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.TimePlydLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TimePlydLbl.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.TimePlydLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.TimePlydLbl.Location = new System.Drawing.Point(3, 26);
-            this.TimePlydLbl.Name = "TimePlydLbl";
-            this.TimePlydLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TimePlydLbl.Size = new System.Drawing.Size(92, 17);
-            this.TimePlydLbl.TabIndex = 12;
-            this.TimePlydLbl.Text = "Time Played: ";
+            this.BattlesWonLbl.Text = "Battles Won: 0\r\n";
             // 
             // label14
             // 
@@ -463,13 +474,74 @@
             this.label15.Size = new System.Drawing.Size(0, 17);
             this.label15.TabIndex = 11;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(159, 23);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(92, 23);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Damage";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(0, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Talkative";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(2, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Sweet";
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(3, 74);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Funny";
+            // 
+            // label16
+            // 
+            this.label16.Location = new System.Drawing.Point(3, 97);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(100, 23);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Hyper";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label17.Location = new System.Drawing.Point(145, 31);
+            this.label17.Name = "label17";
+            this.label17.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label17.Size = new System.Drawing.Size(34, 23);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "HP";
+            // 
             // StatsCustomControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
             this.Controls.Add(this.panel7);
-            this.Controls.Add(XpLbl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel5);
@@ -479,6 +551,7 @@
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "StatsCustomControl";
             this.Size = new System.Drawing.Size(835, 528);
+            this.Load += new System.EventHandler(this.StatsCustomControl_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -495,12 +568,19 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+
+        private System.Windows.Forms.Label label3;
 
         private System.Windows.Forms.TextBox NameText2;
 
-        private System.Windows.Forms.Label TimePlydLbl;
+        private static System.Windows.Forms.Label TimePlayedLbl;
         private System.Windows.Forms.Label BattlesWonLbl;
 
         private System.Windows.Forms.Label label14;
@@ -508,13 +588,13 @@
         private System.Windows.Forms.Panel panel7;
 
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label RealationshipLbl;
+        private static System.Windows.Forms.Label RealationshipLbl;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
 
         private static System.Windows.Forms.Label HealthLbl;
 
-        private System.Windows.Forms.Label AttackLbl;
+        private static System.Windows.Forms.Label AttackLbl;
 
         private System.Windows.Forms.Label Features;
         private System.Windows.Forms.Label label1;
