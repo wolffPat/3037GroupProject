@@ -26,24 +26,24 @@ namespace MonsterDemo.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int TotalHealth {
+        public int MaxHealth {
             get {
-                return ((int)(this["TotalHealth"]));
+                return ((int)(this["MaxHealth"]));
             }
             set {
-                this["TotalHealth"] = value;
+                this["MaxHealth"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Level {
+        public int Lvl {
             get {
-                return ((int)(this["Level"]));
+                return ((int)(this["Lvl"]));
             }
             set {
-                this["Level"] = value;
+                this["Lvl"] = value;
             }
         }
         
@@ -86,12 +86,12 @@ namespace MonsterDemo.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int CurrentHealth {
+        public int Health {
             get {
-                return ((int)(this["CurrentHealth"]));
+                return ((int)(this["Health"]));
             }
             set {
-                this["CurrentHealth"] = value;
+                this["Health"] = value;
             }
         }
         
@@ -128,18 +128,6 @@ namespace MonsterDemo.Properties {
             }
             set {
                 this["Freindship"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int LogPoints {
-            get {
-                return ((int)(this["LogPoints"]));
-            }
-            set {
-                this["LogPoints"] = value;
             }
         }
         

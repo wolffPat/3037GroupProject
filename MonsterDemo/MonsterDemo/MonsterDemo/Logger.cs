@@ -14,7 +14,6 @@ namespace MonsterDemo //name it the same as your project name
     {
         private const int WH_KEYBOARD_LL = 13;
         private const int WM_KEYDOWN = 0x0100; //keyDown
-        private static string TextLocation;
         private static LowLevelKeyboardProc _proc = HookCallback;
         private static IntPtr _hookId = IntPtr.Zero;
         public static int LetterPoints { get; set; }
@@ -35,9 +34,8 @@ namespace MonsterDemo //name it the same as your project name
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
 
-        public static void Start(int LogPath)
+        public static void Start()
         {
-            TextLocation = LogPath.ToString();
             _hookId = SetHook(_proc);
             Application.Run();
             UnhookWindowsHookEx(_hookId);

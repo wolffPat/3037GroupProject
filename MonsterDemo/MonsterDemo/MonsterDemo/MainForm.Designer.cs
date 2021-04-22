@@ -55,7 +55,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.fightTab);
             this.panel1.Controls.Add(this.statTab);
@@ -70,7 +70,7 @@
             // 
             // SidePanel
             // 
-            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (178)))), ((int) (((byte) (8)))), ((int) (((byte) (55)))));
             this.SidePanel.Location = new System.Drawing.Point(1, 14);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 54);
@@ -80,7 +80,7 @@
             // 
             this.fightTab.FlatAppearance.BorderSize = 0;
             this.fightTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fightTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fightTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.fightTab.ForeColor = System.Drawing.Color.White;
             this.fightTab.Image = global::MonsterDemo.Properties.Resources.Sword;
             this.fightTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -97,7 +97,7 @@
             // 
             this.statTab.FlatAppearance.BorderSize = 0;
             this.statTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.statTab.ForeColor = System.Drawing.Color.White;
             this.statTab.Image = global::MonsterDemo.Properties.Resources.Stats;
             this.statTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,7 +114,7 @@
             // 
             this.monsterTab.FlatAppearance.BorderSize = 0;
             this.monsterTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.monsterTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monsterTab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.monsterTab.ForeColor = System.Drawing.Color.White;
             this.monsterTab.Image = global::MonsterDemo.Properties.Resources.home;
             this.monsterTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,7 +131,7 @@
             // 
             this.sizeToggleButton.FlatAppearance.BorderSize = 0;
             this.sizeToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sizeToggleButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sizeToggleButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.sizeToggleButton.ForeColor = System.Drawing.Color.White;
             this.sizeToggleButton.Image = global::MonsterDemo.Properties.Resources.Minimize3;
             this.sizeToggleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,7 +147,7 @@
             // 
             this.settingsButton.FlatAppearance.BorderSize = 0;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.settingsButton.ForeColor = System.Drawing.Color.White;
             this.settingsButton.Image = global::MonsterDemo.Properties.Resources.Tool;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,9 +163,9 @@
             // 
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.CloseButton.ForeColor = System.Drawing.Color.White;
-            this.CloseButton.Image = ((System.Drawing.Image)(resources.GetObject("CloseButton.Image")));
+            this.CloseButton.Image = ((System.Drawing.Image) (resources.GetObject("CloseButton.Image")));
             this.CloseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CloseButton.Location = new System.Drawing.Point(1006, 15);
             this.CloseButton.Name = "CloseButton";
@@ -177,7 +177,7 @@
             // 
             // fight
             // 
-            this.fight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.fight.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
             this.fight.Location = new System.Drawing.Point(215, 59);
             this.fight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fight.Name = "fight";
@@ -187,7 +187,7 @@
             // 
             // statsCustomControl
             // 
-            this.statsCustomControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.statsCustomControl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
             this.statsCustomControl.Location = new System.Drawing.Point(215, 59);
             this.statsCustomControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.statsCustomControl.Name = "statsCustomControl";
@@ -220,15 +220,14 @@
             this.Controls.Add(this.statsCustomControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownEvent);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveEvent);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

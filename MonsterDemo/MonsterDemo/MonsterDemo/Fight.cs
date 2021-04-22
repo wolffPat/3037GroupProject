@@ -11,8 +11,8 @@ namespace MonsterDemo
 {
     public partial class Fight : UserControl
     {
-        private readonly sbyte RED = 2;
-        private readonly sbyte YELLOW = 3;
+        /*private readonly sbyte RED = 2;
+        private readonly sbyte YELLOW = 3;*/
         public Fight()
         {
 
@@ -21,10 +21,7 @@ namespace MonsterDemo
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
 

@@ -4,10 +4,10 @@
     <Profile Name="(Default)" />
   </Profiles>
   <Settings>
-    <Setting Name="TotalHealth" Type="System.Int32" Scope="User">
+    <Setting Name="MaxHealth" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="Level" Type="System.Int32" Scope="User">
+    <Setting Name="Lvl" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Xp" Type="System.Int32" Scope="User">
@@ -19,7 +19,7 @@
     <Setting Name="MonsterTraits" Type="System.String" Scope="User">
       <Value Profile="(Default)">?</Value>
     </Setting>
-    <Setting Name="CurrentHealth" Type="System.Int32" Scope="User">
+    <Setting Name="Health" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="CurrentChallengeLevel" Type="System.Int32" Scope="User">
@@ -29,9 +29,6 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Freindship" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="LogPoints" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="HardMode" Type="System.Boolean" Scope="User">

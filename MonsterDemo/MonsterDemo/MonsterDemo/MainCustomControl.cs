@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Windows.Forms;
 
 #endregion
@@ -16,6 +17,16 @@ namespace MonsterDemo
         private void NameBox_TextChanged(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static void LvlLabel1Update(string lvl)
+        {
+            LvlLabel1.Text = lvl;
         }
     }
 }

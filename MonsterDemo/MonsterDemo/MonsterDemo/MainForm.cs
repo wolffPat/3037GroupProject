@@ -13,10 +13,7 @@ namespace MonsterDemo
 {
     public partial class MainForm : Form
     {
-        private bool _checkFirstrun = true;
-        public static int LogPath = Properties.Settings.Default.LogPoints;
-
-
+        
         public MainForm()
         {
             GetSettings();
@@ -26,35 +23,36 @@ namespace MonsterDemo
             InitializeComponent();
             SidePanel.Height = monsterTab.Height;
             SidePanel.Top = monsterTab.Top;
+            MainCustomControl.LvlLabel1Update(Properties.Settings.Default.Lvl.ToString());
             mainCustomControl.BringToFront();
         }
 
         private static void GetSettings()
         {
-            Monster.Name = Properties.Settings.Default.Name;
+            Monster.MonsterName = Properties.Settings.Default.Name;
             Monster.MonsterXp = Properties.Settings.Default.Xp;
             Monster.MonsterAttack = Properties.Settings.Default.Attack;
-            Monster.MonsterTotalHealth = Properties.Settings.Default.TotalHealth;
-            Monster.MonsterHealth = Properties.Settings.Default.CurrentHealth;
-            Monster.MonsterLvl = Properties.Settings.Default.Level;
+            Monster.MonsterMaxHealth = Properties.Settings.Default.MaxHealth;
+            Monster.MonsterHealth = Properties.Settings.Default.Health;
+            Monster.MonsterLvl = Properties.Settings.Default.Lvl;
             Monster.MonsterFriendShip = Properties.Settings.Default.Freindship;
-            ;
+            
         }
 
         public static void SaveSettings()
         {
-            Properties.Settings.Default.Name = Monster.Name;
+            Properties.Settings.Default.Name = Monster.MonsterName;
             Properties.Settings.Default.Xp = Monster.MonsterXp;
             Properties.Settings.Default.Attack = Monster.MonsterAttack;
-            Properties.Settings.Default.TotalHealth = Monster.MonsterTotalHealth;
-            Properties.Settings.Default.CurrentHealth = Monster.MonsterHealth;
-            Properties.Settings.Default.Level = Monster.MonsterLvl;
+            Properties.Settings.Default.MaxHealth = Monster.MonsterMaxHealth;
+            Properties.Settings.Default.Health = Monster.MonsterHealth;
+            Properties.Settings.Default.Lvl = Monster.MonsterLvl;
             Properties.Settings.Default.Freindship = Monster.MonsterFriendShip;
             Properties.Settings.Default.HardMode = MonsterSettings.HardMode;
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
-
-           
+            Properties.Settings.Default.Save();
+            
 
         }
 
@@ -63,12 +61,12 @@ namespace MonsterDemo
         private static void Logging()
         {
             //starts checking for words and adding them the chars to LetterPoints
-            Logger.Start(LogPath);
+            Logger.Start();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var MyTimer = new Timer {Interval = (5000)}; // Every 5 seconds
+            var MyTimer = new Timer {Interval = (100)}; // Every 1-10th of a second
             MyTimer.Tick += Monster.EveryTick;
             MyTimer.Start();
         }
@@ -96,13 +94,13 @@ namespace MonsterDemo
             Properties.Settings.Default.Reload();
             Properties.Settings.Default.Save();
 
+          
+            //MessageBox.Show(Properties.Settings.Default.MaxHealth.ToString());
+           // MessageBox.Show(Properties.Settings.Default.Health.ToString());
             MessageBox.Show(Properties.Settings.Default.Xp.ToString());
-            MessageBox.Show(Properties.Settings.Default.Attack.ToString());
-            MessageBox.Show(Properties.Settings.Default.TotalHealth.ToString());
-            MessageBox.Show(Properties.Settings.Default.CurrentHealth.ToString());
-            MessageBox.Show(Properties.Settings.Default.Level.ToString());
-            MessageBox.Show(Properties.Settings.Default.Freindship.ToString());
-            MessageBox.Show(Properties.Settings.Default.HardMode.ToString());
+            MessageBox.Show(Properties.Settings.Default.Lvl.ToString());
+      
+          
             Close();
         }
 
