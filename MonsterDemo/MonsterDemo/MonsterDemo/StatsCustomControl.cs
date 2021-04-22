@@ -22,37 +22,38 @@ namespace MonsterDemo
             ModifyProgressBarColor.SetState(progressBar2, YELLOW);*/
 
         }
-
-        private void MonsterLabel_Click(object sender, EventArgs e)
-        {
-            NameBox.Visible = true;
-        }
-
-        private void NameBox_TextChanged(object sender, EventArgs e)
-        {
-            Monster.MonsterName = e.ToString();
-        }
-
-
+        
+  
+        
         public static void LvlLabel2Update(string lvl)
         {
-            LvlLabel2.Text = lvl;
-        }      
-        public static void XpLabelUpdate(string xp)
+            LvlLbl2.Text = $"Level: {lvl}";
+        }
+
+        public static void HealthLblUpdate(string Health,string tHealth)
         {
-            LvlLabel2.Text = xp;
-        } 
-        public static void Xp4LvlLabelUpdate(string Txp)
+            HealthLbl.Text = $"{Health} / {tHealth}";
+        }  
+       
+        public static void XpLblUpdate(string xp,string Txp)
         {
-            LvlLabel2.Text = Txp;
+            XpLbl.Text = $"{xp} / {Txp}";
+        }  
+        public static void TimePlayedLblUpdate(int time)
+        {
+            XpLbl.Text = $"Time Played: {time}";
+        }  
+        public static void BattleWonLblUpdate(int won)
+        {
+            XpLbl.Text = $"Battles Won: {won}";
         }
 
 
-      
+        private void NameText2_TextChanged(object sender, EventArgs e)
+        {
+            NameText2.Text = Monster.MonsterName;
 
-  
-
-      
+        }
     }
 
 
