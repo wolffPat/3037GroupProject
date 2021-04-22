@@ -52,7 +52,6 @@ namespace MonsterDemo
         private void NameText2_TextChanged(object sender, EventArgs e)
         {
             NameText2.Text = Monster.MonsterName;
-
         }
     }
 

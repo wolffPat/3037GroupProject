@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.NameText2 = new System.Windows.Forms.TextBox();
-            LvlLbl2 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             XpLbl = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             HealthLbl = new System.Windows.Forms.Label();
+            LvlLbl2 = new System.Windows.Forms.Label();
+
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.NameText2 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -66,22 +67,6 @@
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // NameText2
-            // 
-            this.NameText2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
-            this.NameText2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NameText2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.NameText2.Font = new System.Drawing.Font("Century Gothic", 20.25F);
-            this.NameText2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.NameText2.Location = new System.Drawing.Point(3, 4);
-            this.NameText2.Name = "NameText2";
-            this.NameText2.ReadOnly = true;
-            this.NameText2.Size = new System.Drawing.Size(198, 34);
-            this.NameText2.TabIndex = 0;
-            this.NameText2.Text = "Name";
-            this.NameText2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NameText2.TextChanged += new System.EventHandler(this.NameText2_TextChanged);
-            // 
             // LvlLbl2
             // 
             LvlLbl2.AutoSize = true;
@@ -90,7 +75,7 @@
             LvlLbl2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             LvlLbl2.Font = new System.Drawing.Font("Century Gothic", 20.25F);
             LvlLbl2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            LvlLbl2.Location = new System.Drawing.Point(15, 4);
+            LvlLbl2.Location = new System.Drawing.Point(3, 2);
             LvlLbl2.Name = "LvlLbl2";
             LvlLbl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             LvlLbl2.Size = new System.Drawing.Size(115, 33);
@@ -174,22 +159,35 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.NameText2);
+            this.panel3.Controls.Add(this.panel6);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel3.Location = new System.Drawing.Point(0, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 44);
             this.panel3.TabIndex = 10;
             // 
+            // NameText2
+            // 
+            this.NameText2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
+            this.NameText2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NameText2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
+            this.NameText2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.NameText2.Location = new System.Drawing.Point(8, 7);
+            this.NameText2.Name = "NameText2";
+            this.NameText2.Size = new System.Drawing.Size(189, 34);
+            this.NameText2.TabIndex = 16;
+            this.NameText2.Text = "Name";
+            this.NameText2.TextChanged += new System.EventHandler(this.NameText2_TextChanged);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(LvlLbl2);
             this.panel6.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panel6.Location = new System.Drawing.Point(203, 0);
+            this.panel6.Location = new System.Drawing.Point(203, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(225, 41);
+            this.panel6.Size = new System.Drawing.Size(225, 37);
             this.panel6.TabIndex = 11;
             // 
             // label4
@@ -500,6 +498,8 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.TextBox NameText2;
+
         private System.Windows.Forms.Label TimePlydLbl;
         private System.Windows.Forms.Label BattlesWonLbl;
 
@@ -539,7 +539,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox NameText2;
         private static System.Windows.Forms.Label LvlLbl2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
