@@ -13,17 +13,7 @@ namespace MonsterDemo
         {
             InitializeComponent();
         }
-
-        private void NameBox_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
         public static void LvlLabel1Update(string lvl)
         {
             LvlLabel1.Text = lvl;
@@ -31,9 +21,14 @@ namespace MonsterDemo
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Monster.MonsterFriendShip++;
-            StatsCustomControl.FriendshipLblUpdate(Monster.MonsterFriendShip);
+            Properties.Settings.Default.Freindship = Monster.MonsterFriendShip;// Should update without these two but had an issue
+            Monster.MonsterFriendShip = Properties.Settings.Default.Freindship;
 
+            Monster.MonsterFriendShip += 1;
+            StatsCustomControl.FriendshipLblUpdate(Monster.MonsterFriendShip);
         }
+
+
+        
     }
 }

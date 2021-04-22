@@ -37,9 +37,10 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::MonsterDemo.Properties.Resources.squirtle;
-            this.pictureBox1.Location = new System.Drawing.Point(176, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(151, 78);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(497, 373);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -51,43 +52,42 @@
             // 
             this.NameBox.BackColor = System.Drawing.Color.Tomato;
             this.NameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NameBox.Font = new System.Drawing.Font("Century Gothic", 20.25F);
+            this.NameBox.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.NameBox.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.NameBox.Location = new System.Drawing.Point(279, 10);
+            this.NameBox.Location = new System.Drawing.Point(260, 14);
+            this.NameBox.Margin = new System.Windows.Forms.Padding(0);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(249, 34);
-            this.NameBox.TabIndex = 5;
+            this.NameBox.Size = new System.Drawing.Size(249, 43);
+            this.NameBox.TabIndex = 56;
+            this.NameBox.TabStop = false;
             this.NameBox.Text = "Grayson";
             this.NameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Tomato;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 20.25F);
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox1.Location = new System.Drawing.Point(287, 429);
+            this.textBox1.Location = new System.Drawing.Point(315, 469);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(249, 34);
-            this.textBox1.TabIndex = 6;
+            this.textBox1.Size = new System.Drawing.Size(98, 41);
+            this.textBox1.TabIndex = 100;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Level: ";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // LvlLabel1
             // 
             LvlLabel1.BackColor = System.Drawing.Color.Tomato;
             LvlLabel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            LvlLabel1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             LvlLabel1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            LvlLabel1.Font = new System.Drawing.Font("Century Gothic", 20.25F);
+            LvlLabel1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             LvlLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            LvlLabel1.Location = new System.Drawing.Point(455, 429);
+            LvlLabel1.Location = new System.Drawing.Point(419, 470);
             LvlLabel1.Name = "LvlLabel1";
             LvlLabel1.ReadOnly = true;
-            LvlLabel1.Size = new System.Drawing.Size(139, 34);
+            LvlLabel1.Size = new System.Drawing.Size(121, 40);
             LvlLabel1.TabIndex = 1000;
             LvlLabel1.TabStop = false;
             LvlLabel1.Text = "0";
@@ -97,6 +97,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tomato;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(LvlLabel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.NameBox);

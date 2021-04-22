@@ -1,21 +1,14 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace MonsterDemo
 {
-    static class Program
+    internal static class Program
     {
-
-        static void Main()
+        internal static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
-
         }
-
-
-
-
     }
 }

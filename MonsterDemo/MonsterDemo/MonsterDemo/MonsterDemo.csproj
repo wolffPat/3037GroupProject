@@ -149,6 +149,8 @@
     <None Include="Resources\managing-wip.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ComingSoon1.gif" />
+    <Content Include="Resources\Explosion1.gif" />
     <Content Include="Resources\home.ico" />
     <Content Include="Resources\home1.ico" />
     <Content Include="Resources\squirtle1.gif" />
