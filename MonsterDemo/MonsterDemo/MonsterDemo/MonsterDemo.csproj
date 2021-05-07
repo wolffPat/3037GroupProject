@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MonsterDemo</RootNamespace>
     <AssemblyName>MonsterDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,8 +39,27 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonSettings, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\nucs.JsonSettings.2.0.0-alpha3\lib\netstandard2.0\JsonSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonSettings.Autosave, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nucs.JsonSettings.Autosave.2.0.0-alpha3\lib\netstandard2.0\JsonSettings.Autosave.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security.SecureString, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.SecureString.4.3.0\lib\net46\System.Security.SecureString.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,13 +90,14 @@
     <Compile Include="MonsterSettings.Designer.cs">
       <DependentUpon>MonsterSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fight.cs">
+    <Compile Include="FightCustomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fight.Designer.cs">
-      <DependentUpon>Fight.cs</DependentUpon>
+    <Compile Include="FightCustomControl.Designer.cs">
+      <DependentUpon>FightCustomControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Property.cs" />
     <Compile Include="StatsCustomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,8 +116,8 @@
     <EmbeddedResource Include="MonsterSettings.resx">
       <DependentUpon>MonsterSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fight.resx">
-      <DependentUpon>Fight.cs</DependentUpon>
+    <EmbeddedResource Include="FightCustomControl.resx">
+      <DependentUpon>FightCustomControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatsCustomControl.resx">
       <DependentUpon>StatsCustomControl.cs</DependentUpon>
@@ -106,6 +127,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

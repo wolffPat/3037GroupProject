@@ -15,9 +15,14 @@
         private System.Windows.Forms.Button CloseButton;
         private MainCustomControl mainCustomControl;
         private StatsCustomControl statsCustomControl;
-        private Fight fight;
+        private FightCustomControl fightCustomControl;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button sizeToggleButton;
+
+    
+
+
+
 
         /// Clean up any resources being used.
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -47,7 +52,7 @@
             this.sizeToggleButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.fight = new MonsterDemo.Fight();
+            this.fightCustomControl = new MonsterDemo.FightCustomControl();
             this.statsCustomControl = new MonsterDemo.StatsCustomControl();
             this.mainCustomControl = new MonsterDemo.MainCustomControl();
             this.panel1.SuspendLayout();
@@ -91,7 +96,7 @@
             this.fightTab.Text = "       Fight";
             this.fightTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.fightTab.UseVisualStyleBackColor = true;
-            this.fightTab.Click += new System.EventHandler(this.fightTab_Click);
+            //this.fightTab.Click += new System.EventHandler(this.fightTab_click);
             // 
             // statTab
             // 
@@ -177,13 +182,13 @@
             // 
             // fight
             // 
-            this.fight.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
-            this.fight.Location = new System.Drawing.Point(215, 59);
-            this.fight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.fight.Name = "fight";
-            this.fight.Padding = new System.Windows.Forms.Padding(10);
-            this.fight.Size = new System.Drawing.Size(835, 528);
-            this.fight.TabIndex = 7;
+            this.fightCustomControl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
+            this.fightCustomControl.Location = new System.Drawing.Point(215, 59);
+            this.fightCustomControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fightCustomControl.Name = "fightCustomControl";
+            this.fightCustomControl.Padding = new System.Windows.Forms.Padding(10);
+            this.fightCustomControl.Size = new System.Drawing.Size(835, 528);
+            this.fightCustomControl.TabIndex = 7;
             // 
             // statsCustomControl
             // 
@@ -216,14 +221,13 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainCustomControl);
-            this.Controls.Add(this.fight);
+            this.Controls.Add(this.fightCustomControl);
             this.Controls.Add(this.statsCustomControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownEvent);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveEvent);
             this.panel1.ResumeLayout(false);

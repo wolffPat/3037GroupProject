@@ -568,7 +568,6 @@
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "StatsCustomControl";
             this.Size = new System.Drawing.Size(835, 528);
-            this.Load += new System.EventHandler(this.StatsCustomControl_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);

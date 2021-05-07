@@ -1,78 +1,121 @@
 using System.Windows.Forms;
 using System;
 using System.Media;
-using settings = MonsterDemo.Properties.Settings;
 
 namespace MonsterDemo
 {
-    class Monster
+    public class Monster
     {
-        public static string MonsterName { get; set; }
-        public static int MonsterXp { get; set; }
-        public static int MonsterLvl { get; set; }
-        public static int MonsterHealth { get; set; }
-        public static int MonsterMaxHealth { get; set; }
-        public static int MonsterAttack { get; set; }
-
-        public static int MonsterFriendShip { get; set; }
+        public string MonsterName { get; set; }
+        public int MonsterXp { get; private set; }
+        public int MonsterMaxXp { get; private set; }
+        public int MonsterLvl { get; private set; }
+        public int MonsterHealth { get; private set; }
+        public int MonsterMaxHealth { get; private set; }
+        public int MonsterAttack { get; private set; }
+        public int MonsterFriendShip { get; set; } //currently not implemented
+        public int MonsterNumber { get; set; } //currently not implemented
         //public static string MonsterFacts { get; set; }
-
-        static double _newXpGate;
-
-
-        public static void EveryTick(object sender, EventArgs e)
+        public void LevelUpdate(object sender, EventArgs e)
         {
-            StatsCustomControl.TimePlayedLblUpdate(.001);
-            
+            //statsCustomControl.TimePlayedLblUpdate(1);
             MonsterXp = Logger.LetterPoints;
-            
+
             switch (MonsterLvl)
             {
                 case 0:
-                    _newXpGate = 2;
+                    MonsterMaxXp = 2;
                     break;
                 case 1:
-                    _newXpGate = 10;
+                    MonsterMaxXp = 10;
                     break;
                 default:
                 {
                     if (MonsterLvl <= 6)
-                        _newXpGate = Math.Round(Math.Pow(2, MonsterLvl - 1)) * 5;
+                        MonsterMaxXp = (int) (Math.Round(Math.Pow(2, MonsterLvl - 1)) * 5);
                     else if (MonsterLvl <= 10)
-                        _newXpGate = Math.Round(Math.Pow(2, MonsterLvl - 1) * 2);
+                        MonsterMaxXp = (int) Math.Round(Math.Pow(2, MonsterLvl - 1) * 2);
                     else
-                        _newXpGate = Math.Round(Math.Pow(2, MonsterLvl - 1) + 2);
+                        MonsterMaxXp = (int) Math.Round(Math.Pow(2, MonsterLvl - 1) + 2);
                     break;
                 }
             }
-
-            StatsCustomControl.XpLblUpdate(MonsterXp.ToString(), _newXpGate.ToString());
-
-
-            if (MonsterXp < _newXpGate) return;
-
+            
+            if (MonsterXp < MonsterMaxXp) return;
+            //else
+            
             MonsterLvl++; //LEVEL UP!
-            MainCustomControl.LvlLabel1Update(MonsterLvl.ToString());
-            StatsCustomControl.LvlLabel2Update(MonsterLvl.ToString());
-                
             MonsterHealth += 5;
             MonsterMaxHealth += 5;
-            StatsCustomControl.HealthLblUpdate(MonsterHealth, MonsterMaxHealth);
-
+            
+            
+            //every 5 levels +5 attack damage
             if (MonsterLvl % 5 == 0)
             {
                 MonsterAttack += 5;
-                StatsCustomControl.AttackLblUpdate(MonsterAttack.ToString());
             }
-
+            
             using (var soundPlayer = new SoundPlayer(Application.StartupPath + @"\LevelUp.wav"))
-            {
-                soundPlayer.Play();
-            }
-
+            { soundPlayer.Play(); }
+                
+            
             Logger.LetterPoints = 0;
-            MonsterXp = 0; //reset points and xp
-            MainForm.SaveSettings();
+
         }
+        public Monster(dynamic prop, int count)
+        {
+            //will say it is never used but it is. This is to dynamically make/name each settings for each new monster
+                                                                              // ReSharper disable once UnusedVariable
+            var mMaxHealth = "m" + count + "MaxHealth";
+                                                                            // ReSharper disable once UnusedVariable
+            var mHealth = "m" + count + "Health";
+                                                                          // ReSharper disable once UnusedVariable
+            var mName = "m" + count + "Name";
+                                                                         // ReSharper disable once UnusedVariable
+            var mAttack = "m" + count + "Attack";
+                                                                      // ReSharper disable once UnusedVariable
+            var mFriendship = "m" + count + "Friendship";
+                                                                     // ReSharper disable once UnusedVariable
+            var mXp = "m" + count + "Xp";
+                                                              // ReSharper disable once UnusedVariable
+            var mMaxXp = "m" + count + "MaxXp";
+                                                            // ReSharper disable once UnusedVariable
+            var mLvl = "m" + count + "Lvl";
+
+          
+          if (prop.mName == null)
+          {
+              // its first time making this monster so give them defaults
+              prop.mName = "Name";
+              prop.mHealth = 5;
+              prop.mMaxHealth = 5;
+              prop.mAttack = 0;
+              prop.mFriendhsip = 0;
+              prop.mXp = 0;
+              prop.mMaxXp = 1;
+              prop.mLvl = 1;
+              prop.mNum = count;
+
+          }
+          
+          //not first time making this monster so grab all its settings
+          MonsterName = Convert.ToString(prop.mName);
+          MonsterMaxHealth =Convert.ToInt32(prop.mMaxHealth);
+          MonsterHealth = Convert.ToInt32(prop.mHealth);
+          MonsterAttack = Convert.ToInt32(prop.mAttack);
+          MonsterFriendShip = Convert.ToInt32(prop.mFriendhsip);
+          MonsterXp = Convert.ToInt32(prop.mXp);
+          MonsterMaxXp = Convert.ToInt32(prop.mMaxXp);
+          MonsterLvl = Convert.ToInt32(prop.mLvl);
+          MonsterNumber = Convert.ToInt32(prop.mNum);
+         
+        }
+        
     }
+
+ 
+    
+    
+    
+    
 }

@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace MonsterDemo
 {
-    public partial class Fight : UserControl
+    public partial class FightCustomControl : UserControl
     {
-        public Fight()
+        public FightCustomControl()
         {
             InitializeComponent();
         }

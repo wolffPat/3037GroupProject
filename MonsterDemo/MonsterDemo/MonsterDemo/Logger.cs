@@ -95,7 +95,7 @@ namespace MonsterDemo //name it the same as your project name
                         _word = _word.Substring(0, _word.Length - 1);
 
                         //hard-mode penalty
-                        if (Properties.Settings.Default.HardMode)
+                        if (MainForm.Hardmode)
                         {
                             LetterPoints -= 5; //-5 points by default...
                         }
