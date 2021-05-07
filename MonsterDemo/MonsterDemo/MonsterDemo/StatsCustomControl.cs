@@ -1,56 +1,35 @@
 ﻿#region
+
 using System.Windows.Forms;
+
 #endregion
 
 namespace MonsterDemo
 {
     public partial class StatsCustomControl : UserControl
     {
-
         public StatsCustomControl()
         {
             InitializeComponent();
         }
         
-        
-        public void LvlLabel2Update(string lvl)
-        {
-            LvlLbl2.Text = @"Level: " + lvl;
-        }
-
-        public void HealthLblUpdate(int health, int tHealth)
-        {
-            if (tHealth < 0) { tHealth = 0; }
-            if (health < 0) { health = 0; }
-            if (AttackLbl == null) return;
-            
-            
-            HealthLbl.Text = $@"{health} / {tHealth}";
-        }
-
-     
-        public void XpLblUpdate(string xp, string txp )
-        {
-            XpLbl.Text = $@"{xp} / {txp}";
-        }
-
+        public void LvlLabel2Update(string lvl) => LvlLbl2.Text = @"Level: " + lvl;
+        public void XpLblUpdate(string xp, string txp) => XpLbl.Text = $@"{xp} / {txp}";
+        public void NameChange(string monsterName) => NameText2.Text = monsterName;
+        public void TimePlayedLblUpdate(double seconds) => TimePlayedLbl.Text = $@"Time Open: {seconds} seconds";
         public void AttackLblUpdate(string attack)
         {
             if (AttackLbl == null) return;
             AttackLbl.Text = attack;
         }
-
-        public void TimePlayedLblUpdate(double seconds)
+        public void HealthLblUpdate(int health, int tHealth)
         {
-            TimePlayedLbl.Text = $@"Time Open: {seconds} seconds";
+            if (tHealth < 0) tHealth = 0;
+            if (health < 0) health = 0;
+            if (AttackLbl == null) return;
             
+            HealthLbl.Text = $@"{health} / {tHealth}";
         }
-
-        public void BattleWonLblUpdate(int won)
-        {
-            XpLbl.Text = $@"Battles Won: {won}";
-        }
-
         public void FriendshipLblUpdate(int friendship)
         {
             if (friendship >= 5)
@@ -66,18 +45,14 @@ namespace MonsterDemo
             else
                 RealationshipLbl.Text = @"Stranger";
         }
-        
         public void StatsCustomControlUpdate(Monster monster)
         {
             FriendshipLblUpdate(monster.MonsterFriendShip);
             HealthLblUpdate(monster.MonsterHealth, monster.MonsterMaxHealth);
             LvlLabel2Update(monster.MonsterLvl.ToString());
             AttackLblUpdate(monster.MonsterAttack.ToString());
+        }
+        public void BattleWonLblUpdate(int won) => XpLbl.Text = $@"Battles Won: {won}";
 
-        }
-        public void NameChange(string monsterName)
-        {
-            NameText2.Text = monsterName;
-        }
     }
 }

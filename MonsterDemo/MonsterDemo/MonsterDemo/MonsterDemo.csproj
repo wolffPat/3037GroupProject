@@ -97,7 +97,6 @@
       <DependentUpon>FightCustomControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Property.cs" />
     <Compile Include="StatsCustomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

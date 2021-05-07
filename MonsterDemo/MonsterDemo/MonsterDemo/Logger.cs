@@ -108,6 +108,7 @@ namespace MonsterDemo //name it the same as your project name
                 case "WIN":
                 case "SHIFT":
                 case "CAPS":
+                case "ESCAPE":
                 {
                     break;
                 }
