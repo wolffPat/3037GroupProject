@@ -1,56 +1,50 @@
 using System.Windows.Forms;
 using System;
 using System.Media;
+using Nucs.JsonSettings;
 
 namespace MonsterDemo
 {
     public class Monster
     {
-        public Monster(dynamic prop, int count)
+        public Monster(SettingsBag prop, int count)
         {
             //will say it is never used but it is. This is to dynamically make/name each settings for each new monster
                                                                            // ReSharper disable once UnusedVariable
             var mMaxHealth = "m" + count + "MaxHealth";
-                                                                            // ReSharper disable once UnusedVariable
-            var mHealth = "m" + count + "Health";
-                                                                            // ReSharper disable once UnusedVariable
+            var mHealth = $"m{count}Health";
             var mName = "m" + count + "Name";
-                                                                          // ReSharper disable once UnusedVariable
             var mAttack = "m" + count + "Attack";
-                                                                          // ReSharper disable once UnusedVariable
             var mFriendship = "m" + count + "Friendship";
-                                                                            // ReSharper disable once UnusedVariable
             var mXp = "m" + count + "Xp";
-                                                                            // ReSharper disable once UnusedVariable
             var mMaxXp = "m" + count + "MaxXp";
-                                                                            // ReSharper disable once UnusedVariable
             var mLvl = "m" + count + "Lvl";
 
 
-            if (prop.mName == null)
+            if (prop[mName] == null)
             {
                 // its first time making this monster so give them defaults
-                prop.mName = "Name";
-                prop.mHealth = 5;
-                prop.mMaxHealth = 5;
-                prop.mAttack = 0;
-                prop.mFriendhsip = 0;
-                prop.mXp = 0;
-                prop.mMaxXp = 1;
-                prop.mLvl = 1;
-                prop.mNum = count;
+                prop[mName] = "Name";
+                prop[mHealth] = 5;
+                prop[mMaxHealth] = 5;
+                prop[mAttack] = 0;
+                prop[mFriendship] = 0;
+                prop[mXp] = 0;
+                prop[mMaxXp] = 1;
+                prop[mLvl] = 1;
+                prop["mNum"] = count;
             }
 
             //not first time making this monster so grab all its settings
-            MonsterName = Convert.ToString(prop.mName);
-            MonsterMaxHealth = Convert.ToInt32(prop.mMaxHealth);
-            MonsterHealth = Convert.ToInt32(prop.mHealth);
-            MonsterAttack = Convert.ToInt32(prop.mAttack);
-            MonsterFriendShip = Convert.ToInt32(prop.mFriendhsip);
-            MonsterXp = Convert.ToInt32(prop.mXp);
-            MonsterMaxXp = Convert.ToInt32(prop.mMaxXp);
-            MonsterLvl = Convert.ToInt32(prop.mLvl);
-            MonsterNumber = Convert.ToInt32(prop.mNum);
+            MonsterName = Convert.ToString(prop[mName]);
+            MonsterMaxHealth = Convert.ToInt32(prop[mMaxHealth]);
+            MonsterHealth = Convert.ToInt32(prop[mHealth]);
+            MonsterAttack = Convert.ToInt32(prop[mAttack]);
+            MonsterFriendShip = Convert.ToInt32(prop[mFriendship]);
+            MonsterXp = Convert.ToInt32( prop[mXp]);
+            MonsterMaxXp = Convert.ToInt32( prop[mMaxXp]);
+            MonsterLvl = Convert.ToInt32( prop[mLvl]);
+            MonsterNumber = Convert.ToInt32(prop["mNum"]);
         }
         public void LevelUpdate(object sender, EventArgs e)
         {

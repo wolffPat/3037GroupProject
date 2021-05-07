@@ -14,7 +14,6 @@ namespace MonsterDemo
     public partial class MainForm : Form
     {
         private static SettingsBag _mProperty = JsonSettings.Load<SettingsBag>("Properties.json").EnableAutosave();
-        private dynamic _prop = _mProperty.AsDynamic();
         private static int _currentMonster = 1;
         //%private bool _timerstop=false;%//not used currently 
         
@@ -24,12 +23,13 @@ namespace MonsterDemo
             var monsters = new object[6];
 
             //first run will be null
-            if (_prop.mCount == null) { _prop.mCount = 1; }
+            // ReSharper disable once HeuristicUnreachableCode
+            if (_mProperty["mCount"] == null) _mProperty["mCount"] = 1;
 
-            for (int i = 1; i <= Convert.ToInt32(_prop.mCount); i++)
+            for (int i = 1; i <= Convert.ToInt32(_mProperty["mCount"]); i++)
             {
                 //the constructor gets the stats from property file on creation
-                monsters[i] = new Monster(_prop, i);
+                monsters[i] = new Monster(_mProperty, i);
             }
 
             //Starts thread that logs & makes it a child thread(HIGHPriority)
@@ -92,22 +92,35 @@ namespace MonsterDemo
                                              //if (_timerstop) return; //later?
             var myTimer = new Timer {Interval = (100)}; // Every 1-10th of a second
             myTimer.Tick += monster.LevelUpdate;
-            SaveMonster(monster);
-                                           //if (_timerstop) return;
+            //if (_timerstop) return;
             myTimer.Start();
         }
 
         private void SaveMonster(Monster monster)
         {
-            if (_prop == null) return; //safety
-            _prop.mLvl = monster.MonsterLvl;
-            _prop.mMaxHealth = monster.MonsterMaxHealth;
-            _prop.mHealth = monster.MonsterHealth;
-            _prop.mAttack = monster.MonsterAttack;
-            _prop.mFriendhsip = monster.MonsterFriendShip;
-            _prop.mXp = monster.MonsterXp;
-            _prop.mMaxXp = monster.MonsterMaxXp;
-            _prop.mNum = monster.MonsterNumber;
+            var count= monster.MonsterNumber;
+            
+            var mMaxHealth = $"m{count}MaxHealth";
+            var mHealth = $"m{count}Health";
+            var mName = $"m{count}Name";
+            var mAttack = $"m{count}Attack";
+            var mFriendship = $"m{count}Friendship";
+            var mXp = $"m{count}Xp";
+            var mMaxXp = $"m{count}MaxXp";
+            var mLvl = $"m{count}Lvl";
+            var mNumber = $"m{count}Number";
+            
+            
+            if (_mProperty == null) return; //safety
+            _mProperty[mLvl] = monster.MonsterLvl;
+            _mProperty[mMaxHealth]= monster.MonsterMaxHealth;
+            _mProperty[mHealth] = monster.MonsterHealth;
+            _mProperty[mAttack] = monster.MonsterAttack;
+            _mProperty[mFriendship] = monster.MonsterFriendShip;
+            _mProperty[mXp] = monster.MonsterXp;
+            _mProperty[mMaxXp] = monster.MonsterMaxXp;
+            _mProperty[mNumber] = monster.MonsterNumber;
+            _mProperty[mName] = monster.MonsterName;
         }
 
 
@@ -143,7 +156,7 @@ namespace MonsterDemo
         private void CloseButton_Click(object sender, EventArgs e)
         {
             _monsterPrint.MonsterName = mainCustomControl.MonsterName;
-            _prop.mName = _monsterPrint.MonsterName;
+            _mProperty["mName"] = _monsterPrint.MonsterName;
 
             SaveMonster(_monsterPrint);
             Environment.Exit(Environment.ExitCode); //this will close all threads
