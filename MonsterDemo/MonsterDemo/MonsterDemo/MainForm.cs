@@ -2,6 +2,7 @@
 
 using System;
 using System.Drawing;
+using System.Management.Instrumentation;
 using System.Threading;
 using System.Windows.Forms;
 using Nucs.JsonSettings;
@@ -15,23 +16,40 @@ namespace MonsterDemo
     {
         private static SettingsBag _mProperty = JsonSettings.Load<SettingsBag>("Properties.json").EnableAutosave();
         private static int _currentMonster = 1;
+        public static bool HardMode { get; set; }
+
+        public static Monster _monsterPrint;
         //%private bool _timerstop=false;%//not used currently 
-        
+
         public MainForm()
         {
             //6 monster limit currently 
-            var monsters = new object[6];
-
-            //first run will be null
-            // ReSharper disable once HeuristicUnreachableCode
+            var monsters = new object[6];    
+            
+            
+            
+            
+            
+                                                                                                                                                     // ReSharper disable once HeuristicUnreachableCode
+            //first run will be null                                                                                                                                                                 // ReSharper disable once HeuristicUnreachableCode
+            if (_mProperty["HardMode"] == null) _mProperty["HardMode"] = false.ToString();
+            HardMode = Convert.ToBoolean(_mProperty["HardMode"]);
+                                                                                                                                                // ReSharper disable once HeuristicUnreachableCode
+            //first run will be null                                                                                                  // ReSharper disable once HeuristicUnreachableCode
             if (_mProperty["mCount"] == null) _mProperty["mCount"] = 1;
+
+
 
             for (int i = 1; i <= Convert.ToInt32(_mProperty["mCount"]); i++)
             {
                 //the constructor gets the stats from property file on creation
                 monsters[i] = new Monster(_mProperty, i);
-            }
 
+            }
+            //update all labels and starts leveling monsters
+            PerformPerSecond((Monster) monsters[_currentMonster]);
+            
+            
             //Starts thread that logs & makes it a child thread(HIGHPriority)
             ThreadStart childRef = Logging;
             var childThread = new Thread(childRef) {IsBackground = false};
@@ -44,20 +62,20 @@ namespace MonsterDemo
             SidePanel.Height = monsterTab.Height;
             SidePanel.Top = monsterTab.Top;
 
-            //update all labels and starts waiting for leveling monster
-            LabelTimer((Monster) monsters[_currentMonster]);
-            LevelTimer((Monster) monsters[_currentMonster]);
-        }
+                
+                
+          
 
-        private static Monster _monsterPrint;
-        public static bool Hardmode { get; set; }
-        private int _counter;
-
+            
+        } 
+        
+        private static int _counter;
         private void LabelUpdate(object sender, EventArgs eventArgs)
         {
-            _counter++;
+            
             //mainCustomForm gets level updates from file
             mainCustomControl.LvlLabel1Update(_monsterPrint.MonsterLvl.ToString());
+            mainCustomControl.SetTextBoxAndName(_monsterPrint);
 
             //statsCustomForm gets level updates from file
             statsCustomControl.LvlLabel2Update(_monsterPrint.MonsterLvl.ToString());
@@ -65,8 +83,9 @@ namespace MonsterDemo
             statsCustomControl.XpLblUpdate(_monsterPrint.MonsterXp.ToString(), _monsterPrint.MonsterMaxXp.ToString());
             statsCustomControl.FriendshipLblUpdate(_monsterPrint.MonsterFriendShip);
             statsCustomControl.HealthLblUpdate(_monsterPrint.MonsterHealth, _monsterPrint.MonsterMaxHealth);
-            statsCustomControl.TimePlayedLblUpdate(_counter);
-            statsCustomControl.NameChange(_monsterPrint.MonsterName);
+            statsCustomControl.NameUpdate(_monsterPrint.MonsterName);
+            _counter++; statsCustomControl.TimePlayedLblUpdate(_counter);
+
 
             //*statsCustomControl.BattleWonLblUpdate();
             //*statsCustomControl.TimePlayedLblUpdate();
@@ -74,29 +93,17 @@ namespace MonsterDemo
 
         //calls in a new thread in background, for counting real words typed
         private static void Logging() => Logger.Start();
-        
-        private void LabelTimer(Monster monster)
-        {
-            //if (_timerstop) return; //later?
-            var myTimer = new Timer {Interval = (1000)}; // Every second
-            myTimer.Tick += LabelUpdate;
 
-            mainCustomControl.SetMName(monster.MonsterName);
-            _monsterPrint = monster;
-            //if (_timerstop) return;
-            myTimer.Start();
-        }
-
-        private void LevelTimer(Monster monster)
+        private static bool firstLoad;
+        private void PerformPerSecond(Monster monster)
         {
-                                             //if (_timerstop) return; //later?
-            var myTimer = new Timer {Interval = (100)}; // Every 1-10th of a second
+            var myTimer = new Timer {Interval = (1000/2)}; // Every half second
             myTimer.Tick += monster.LevelUpdate;
-            //if (_timerstop) return;
+            myTimer.Tick += LabelUpdate;
             myTimer.Start();
         }
 
-        private void SaveMonster(Monster monster)
+       public static void SaveMonster(Monster monster)
         {
             var count= monster.MonsterNumber;
             
@@ -109,8 +116,6 @@ namespace MonsterDemo
             var mMaxXp = $"m{count}MaxXp";
             var mLvl = $"m{count}Lvl";
             var mNumber = $"m{count}Number";
-            
-            
             if (_mProperty == null) return; //safety
             _mProperty[mLvl] = monster.MonsterLvl;
             _mProperty[mMaxHealth]= monster.MonsterMaxHealth;
@@ -121,10 +126,12 @@ namespace MonsterDemo
             _mProperty[mMaxXp] = monster.MonsterMaxXp;
             _mProperty[mNumber] = monster.MonsterNumber;
             _mProperty[mName] = monster.MonsterName;
+            _mProperty["HardMode"] = HardMode.ToString();
         }
 
 
-        // Mouse events are for moving the window without top bar  
+
+       // Mouse events are for moving the window without top bar  
         private void MouseDownEvent(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -155,11 +162,9 @@ namespace MonsterDemo
         //the rest are tabs/buttons mostly calling MakeFront
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            _monsterPrint.MonsterName = mainCustomControl.MonsterName;
-            _mProperty["mName"] = _monsterPrint.MonsterName;
-
             SaveMonster(_monsterPrint);
-            Environment.Exit(Environment.ExitCode); //this will close all threads
+            
+            Environment.Exit(Environment.ExitCode);
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)

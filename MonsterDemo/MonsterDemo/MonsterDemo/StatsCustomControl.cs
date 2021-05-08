@@ -15,7 +15,6 @@ namespace MonsterDemo
         
         public void LvlLabel2Update(string lvl) => LvlLbl2.Text = @"Level: " + lvl;
         public void XpLblUpdate(string xp, string txp) => XpLbl.Text = $@"{xp} / {txp}";
-        public void NameChange(string monsterName) => NameText2.Text = monsterName;
         public void TimePlayedLblUpdate(double seconds) => TimePlayedLbl.Text = $@"Time Open: {seconds} seconds";
         public void AttackLblUpdate(string attack)
         {
@@ -54,5 +53,6 @@ namespace MonsterDemo
         }
         public void BattleWonLblUpdate(int won) => XpLbl.Text = $@"Battles Won: {won}";
 
+        public void NameUpdate(string monsterPrintMonsterName) => NameText2.Text = monsterPrintMonsterName;
     }
 }

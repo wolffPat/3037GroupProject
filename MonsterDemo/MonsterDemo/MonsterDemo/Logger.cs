@@ -3,7 +3,9 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 #endregion
@@ -18,8 +20,7 @@ namespace MonsterDemo //name it the same as your project name
         private static IntPtr _hookId = IntPtr.Zero;
         public static int LetterPoints { get; set; }
         private static string _word = "";
-
-
+        
         private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
@@ -52,7 +53,10 @@ namespace MonsterDemo //name it the same as your project name
                     GetModuleHandle(curModule.ModuleName), 0);
             }
         }
-
+        
+        
+        private static readonly string Dictionary = File.ReadAllText(Application.StartupPath + @"\words.txt").ToUpper().Replace(System.Environment.NewLine, "%#@#");// was supposed to replace newline for check but .contains does not care..
+        private static string _lastWord;
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (nCode < 0 || wParam != (IntPtr) WM_KEYDOWN) return CallNextHookEx(_hookId, nCode, wParam, lParam);
@@ -72,13 +76,19 @@ namespace MonsterDemo //name it the same as your project name
                 case ",":
                 case " ":
                 {
-                    //Searches Entire dictionary for typed word
-                    if (File.ReadAllText(Application.StartupPath + @"\words.txt").ToUpper().Contains(_word.ToUpper()))
-                    {
-                        //points will equal the amount of letters in the word 
-                        LetterPoints += _word.Length;
-                    }
 
+                    
+                    //Searches Entire dictionary for typed word... I got frustrated with .contains will make better soon...
+                    if (_word=="A"||_word=="I"||_word=="IN"||_word=="AT"||_word=="WE"||_word=="HE"||_word=="AS"||_word=="NO"||_word=="HI"||(_word.Length>2 && Dictionary.Contains(_word)))
+                    {
+                        if (_lastWord != _word)
+                        {
+                            //points will equal the amount of letters in the word 
+                            LetterPoints += _word.Length;
+                        }
+                        _lastWord = _word;
+                    }
+                    
                     //Make word empty again 
                     _word = "";
                     break;
@@ -95,7 +105,7 @@ namespace MonsterDemo //name it the same as your project name
                         _word = _word.Substring(0, _word.Length - 1);
 
                         //hard-mode penalty
-                        if (MainForm.Hardmode)
+                        if (MainForm.HardMode)
                         {
                             LetterPoints -= 5; //-5 points by default...
                         }

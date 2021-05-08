@@ -11,10 +11,10 @@ namespace MonsterDemo
         public MonsterSettings()
         {
             InitializeComponent();
-            if (MainForm.Hardmode) HardCheckbox.CheckState = CheckState.Checked;
+            if (MainForm.HardMode) HardCheckbox.CheckState = CheckState.Checked;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) => MainForm.Hardmode = HardCheckbox.Checked;
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) => MainForm.HardMode = HardCheckbox.Checked;
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

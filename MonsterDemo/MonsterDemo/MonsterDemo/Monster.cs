@@ -21,9 +21,11 @@ namespace MonsterDemo
             var mLvl = "m" + count + "Lvl";
 
 
+            //will say is always false but this is not true. Its based on file
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             if (prop[mName] == null)
             {
-                // its first time making this monster so give them defaults
+                // ReSharper disable once HeuristicUnreachableCode
                 prop[mName] = "Name";
                 prop[mHealth] = 5;
                 prop[mMaxHealth] = 5;
@@ -51,6 +53,13 @@ namespace MonsterDemo
             //statsCustomControl.TimePlayedLblUpdate(1);
             MonsterXp = Logger.LetterPoints;
 
+            //monster print is just for printing to labels holds copy of currentMonster. Can't have timer take in monster as far as I know 
+            MainForm._monsterPrint = this;
+
+            MainForm.SaveMonster(this);
+            
+            
+            
             switch (MonsterLvl)
             {
                 case 0:
@@ -70,7 +79,7 @@ namespace MonsterDemo
                     break;
                 }
             }
-
+            
             if (MonsterXp < MonsterMaxXp) return;
             //else
 
@@ -89,8 +98,9 @@ namespace MonsterDemo
             {
                 soundPlayer.Play();
             }
-
-
+            
+            MainForm.SaveMonster(this);
+            
             Logger.LetterPoints = 0;
         }
         public string MonsterName { get; set; }

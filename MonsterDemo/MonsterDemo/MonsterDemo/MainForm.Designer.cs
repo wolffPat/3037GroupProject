@@ -96,7 +96,7 @@
             this.fightTab.Text = "       Fight";
             this.fightTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.fightTab.UseVisualStyleBackColor = true;
-            //this.fightTab.Click += new System.EventHandler(this.fightTab_click);
+            this.fightTab.Click += new System.EventHandler(this.FightTab_Click);
             // 
             // statTab
             // 
@@ -180,9 +180,11 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // fight
+            // fightCustomControl
             // 
             this.fightCustomControl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (25)))), ((int) (((byte) (24)))), ((int) (((byte) (24)))));
+            this.fightCustomControl.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("fightCustomControl.BackgroundImage")));
+            this.fightCustomControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fightCustomControl.Location = new System.Drawing.Point(215, 59);
             this.fightCustomControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fightCustomControl.Name = "fightCustomControl";
@@ -203,6 +205,7 @@
             // mainCustomControl
             // 
             this.mainCustomControl.BackColor = System.Drawing.Color.Tomato;
+            this.mainCustomControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainCustomControl.Location = new System.Drawing.Point(215, 59);
             this.mainCustomControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainCustomControl.Name = "mainCustomControl";
